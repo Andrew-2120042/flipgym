@@ -3,627 +3,2284 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>HEMANTH GYMNASTICS</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<title>HEMANTH GYMNASTICS — Train. Flip. Succeed.</title>
+<meta name="description" content="Professional gymnastics training in Nallagandla, Hyderabad. Structured batches for all ages — tiny tots, beginners, intermediates, and competitive athletes." />
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
+/* CSS RESET & VARIABLES */
 *{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --pink:#E0456A;
-  --pink-dim:rgba(224,69,106,0.08);
-  --dark:#080D1A;
-  --surface:#111827;
-  --mid:#555;
-  --muted:#888;
-  --border:#E5E5E5;
-  --bg:#F8F7F5;
-  --white:#FFFFFF;
-  --text:#1A1A1A;
+:root {
+  --primary: #E0456A;
+  --primary-hover: #C73A5E;
+  --primary-light: rgba(224, 69, 106, 0.08);
+  --primary-border: rgba(224, 69, 106, 0.2);
+  --dark: #0A0D14;
+  --dark-light: #111827;
+  --light: #F8F9FA;
+  --text: #0E1118;
+  --text-muted: #5E6980;
+  --white: #FFFFFF;
+  --border: #E2E8F0;
+  --border-light: rgba(255, 255, 255, 0.08);
 }
-body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);font-size:16px;line-height:1.6}
-a{text-decoration:none;color:inherit}
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--white);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
 
-.page{display:none}
-.page.active{display:block}
+.page {
+  display: none;
+}
+.page.active {
+  display: block;
+}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--white);border-bottom:1px solid var(--border);padding:0 5%;transition:all 0.4s ease}
-nav.scrolled{top:12px;left:24px;right:24px;padding:0 28px;border-radius:14px;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 4px 32px rgba(0,0,0,0.1);border:1px solid rgba(0,0,0,0.06)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;max-width:1200px;margin:0 auto}
-.logo{display:flex;align-items:center;gap:10px;cursor:pointer}
-.logo-mark{width:38px;height:38px;background:var(--pink);display:flex;align-items:center;justify-content:center;font-family:'Barlow',sans-serif;font-weight:800;font-size:15px;color:white}
-.logo-text{display:flex;flex-direction:column;line-height:1.1}
-.logo-text span:first-child{font-family:'Barlow',sans-serif;font-weight:800;font-size:16px;letter-spacing:0.3px;color:var(--dark)}
-.logo-text span:last-child{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
-.nav-links{display:flex;align-items:center;gap:32px}
-.nav-links a{font-size:14px;font-weight:500;color:var(--mid);letter-spacing:0.3px;transition:color 0.3s;cursor:pointer}
-.nav-links a:hover{color:var(--pink)}
-.nav-cta{background:var(--pink);color:white;padding:9px 20px;font-size:13px;font-family:'Inter',sans-serif;font-weight:600;letter-spacing:0.5px;border:none;cursor:pointer;transition:background 0.2s}
-.nav-cta:hover{background:#c73a5e}
+/* SCROLLBAR */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--light);
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
 
-/* HERO */
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr}
-.hero-content{padding:80px 64px;display:flex;flex-direction:column;justify-content:center;background:var(--white);border-right:1px solid var(--border)}
-.hero-photo{background:url('gymnast-pose.jpg') center/cover no-repeat;position:relative}
-.hero-photo-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(255,255,255,0.08) 0%,transparent 25%)}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--pink-dim);border:1px solid rgba(224,69,106,0.25);color:var(--pink);font-size:11px;font-family:'Inter',sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;margin-bottom:32px;width:fit-content}
-.hero-badge span{width:5px;height:5px;background:var(--pink);border-radius:50%;flex-shrink:0}
-h1{font-family:'Barlow',sans-serif;font-size:68px;font-weight:800;line-height:0.95;letter-spacing:-2px;margin-bottom:24px;color:var(--dark)}
-h1 em{font-style:normal;color:var(--pink)}
-.hero-sub{font-size:16px;font-family:'Inter',sans-serif;font-weight:400;color:var(--mid);line-height:1.75;margin-bottom:40px;max-width:440px}
-.hero-actions{display:flex;align-items:center;gap:16px;margin-bottom:48px}
-.btn-primary{background:var(--pink);color:white;padding:14px 28px;font-size:14px;font-family:'Inter',sans-serif;font-weight:600;letter-spacing:0.5px;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s}
-.btn-primary:hover{background:#c73a5e}
-.btn-secondary{border:1.5px solid var(--border);color:var(--mid);padding:13px 24px;font-size:14px;font-family:'Inter',sans-serif;font-weight:600;letter-spacing:0.3px;cursor:pointer;background:transparent;transition:all 0.2s;white-space:nowrap}
-.btn-secondary:hover{border-color:var(--text);color:var(--text)}
-.hero-divider{width:40px;height:1px;background:var(--border);margin-bottom:32px}
-.hero-stats{display:flex;gap:40px}
-.stat strong{display:block;font-family:'Barlow',sans-serif;font-size:38px;font-weight:800;color:var(--dark);line-height:1}
-.stat span{font-size:11px;font-family:'Inter',sans-serif;font-weight:500;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:4px;display:block}
+/* BUTTONS */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: none;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--white);
+  color: var(--dark);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(255, 255, 255, 0.15);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+}
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--white);
+}
+.btn-accent {
+  background: var(--primary);
+  color: var(--white);
+}
+.btn-accent:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(224, 69, 106, 0.25);
+}
+.btn-outline-dark {
+  background: transparent;
+  color: var(--text);
+  border: 1.5px solid var(--border);
+}
+.btn-outline-dark:hover {
+  background: var(--text);
+  color: var(--white);
+  border-color: var(--text);
+}
+
+/* BADGE */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 11px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 100px;
+  width: fit-content;
+}
 
 /* SECTION COMMON */
-section{padding:80px 5%}
-.section-inner{max-width:1200px;margin:0 auto}
-.section-label{font-size:11px;font-family:'Barlow',sans-serif;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--pink);margin-bottom:12px}
-.section-title{font-family:'Barlow',sans-serif;font-size:42px;font-weight:800;line-height:1.0;letter-spacing:-0.5px;margin-bottom:16px;color:var(--text)}
-.section-sub{color:var(--mid);font-size:16px;font-family:'Inter',sans-serif;font-weight:400;line-height:1.7;max-width:520px}
+section {
+  padding: 100px 5%;
+}
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-title-outline {
+  font-family: 'Barlow', sans-serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  -webkit-text-stroke: 1.5px var(--text);
+  color: transparent;
+}
+.section-title-outline .solid {
+  color: var(--text);
+  -webkit-text-stroke: 0;
+}
+.section-title-outline.dark-bg {
+  -webkit-text-stroke: 1.5px var(--white);
+}
+.section-title-outline.dark-bg .solid {
+  color: var(--white);
+  -webkit-text-stroke: 0;
+}
 
-/* CLASSES — PHOTO ROWS */
-.classes-section{background:var(--white);border-top:1px solid var(--border)}
-.classes-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px}
-.class-list{display:flex;flex-direction:column;gap:4px}
-.class-item{position:relative;height:200px;background-size:cover;background-position:center;cursor:pointer;overflow:hidden;display:flex;align-items:center}
-.class-item-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.58) 55%,rgba(0,0,0,0.28) 100%);transition:background 0.35s}
-.class-item:hover .class-item-overlay{background:linear-gradient(to right,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.75) 55%,rgba(0,0,0,0.5) 100%)}
-.class-item-inner{position:relative;z-index:1;display:grid;grid-template-columns:72px 1fr 200px 130px 40px;align-items:center;gap:28px;padding:0 48px;width:100%;transition:padding-left 0.3s}
-.class-item:hover .class-item-inner{padding-left:64px}
-.class-item-num{font-family:'Barlow',sans-serif;font-size:52px;font-weight:800;color:rgba(255,255,255,0.1);line-height:1;transition:color 0.3s}
-.class-item:hover .class-item-num{color:var(--pink);opacity:0.85}
-.class-item-main h3{font-family:'Barlow',sans-serif;font-size:22px;font-weight:800;color:white;margin-bottom:5px}
-.class-item-main p{font-size:13px;font-family:'Inter',sans-serif;font-weight:400;color:rgba(255,255,255,0.6);line-height:1.5}
-.class-item-schedule{font-size:12px;font-family:'Inter',sans-serif;font-weight:500;color:rgba(255,255,255,0.65);line-height:1.8;text-align:right}
-.class-item-schedule strong{display:block;font-size:13px;color:white;font-weight:600}
-.class-item-age{font-size:11px;font-family:'Inter',sans-serif;font-weight:600;color:rgba(255,255,255,0.45);letter-spacing:1.5px;text-transform:uppercase;text-align:right}
-.class-item-arrow{color:var(--pink);opacity:0;transform:translateX(-10px);transition:opacity 0.25s,transform 0.3s;flex-shrink:0}
-.class-item:hover .class-item-arrow{opacity:1;transform:translateX(0)}
+/* NAV */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  z-index: 1000;
+  background: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0 5%;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+nav.scrolled {
+  background: rgba(10, 13, 20, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  height: 72px;
+  top: 16px;
+  left: 5%;
+  right: 5%;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+.logo-icon {
+  width: 38px;
+  height: 38px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(224, 69, 106, 0.3);
+}
+.logo-text {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  text-transform: uppercase;
+  line-height: 1.1;
+  display: flex;
+  flex-direction: column;
+}
+.logo-text span:last-child {
+  font-size: 10px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.15em;
+  margin-top: 1px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.02em;
+  transition: color 0.3s;
+}
+.nav-links a:hover {
+  color: var(--primary);
+}
+.nav-cta {
+  padding: 10px 22px;
+  font-size: 13px;
+}
 
-/* COACHES */
-.coaches-section{background:#F5F4F2}
-.coaches-section .section-sub{color:#555}
-.coaches-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid #E0DED9;margin-top:48px}
-.coach-card{background:#F5F4F2;border-right:1px solid #E0DED9;overflow:hidden}
-.coach-card:last-child{border-right:none}
-.coach-photo{height:180px;background:#D8D6D2;display:flex;align-items:center;justify-content:center;position:relative}
-.coach-initials{font-family:'Barlow',sans-serif;font-size:44px;font-weight:800;color:rgba(0,0,0,0.12)}
-.coach-role-tag{position:absolute;bottom:0;left:0;right:0;padding:7px 16px;background:rgba(0,0,0,0.55)}
-.coach-role-tag span{font-size:10px;font-family:'Inter',sans-serif;font-weight:600;color:rgba(255,255,255,0.7);letter-spacing:1.2px;text-transform:uppercase}
-.coach-body{padding:22px 24px}
-.coach-body h3{font-family:'Barlow',sans-serif;font-size:17px;font-weight:800;color:#1A1A1A;margin-bottom:3px}
-.coach-exp{font-size:11px;font-family:'Inter',sans-serif;font-weight:600;color:var(--pink);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
-.coach-body p{font-size:13px;font-family:'Inter',sans-serif;color:#666;line-height:1.6}
+/* HERO */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: url('kids-medals.png') center/cover no-repeat;
+  padding: 120px 5% 80px;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(10, 13, 20, 0.9) 0%, rgba(10, 13, 20, 0.7) 50%, rgba(10, 13, 20, 0.3) 100%),
+              linear-gradient(to top, rgba(10, 13, 20, 0.95) 0%, transparent 40%);
+  z-index: 1;
+}
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(224, 69, 106, 0.12);
+  border: 1px solid rgba(224, 69, 106, 0.25);
+  color: var(--primary);
+  font-size: 11px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 100px;
+}
+.hero-badge span {
+  width: 6px;
+  height: 6px;
+  background: var(--primary);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.6; }
+}
+.hero-title {
+  font-family: 'Barlow', sans-serif;
+  font-size: clamp(3.2rem, 8vw, 6.2rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.hero-title em {
+  font-style: normal;
+  color: var(--primary);
+}
+.hero-desc {
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.65;
+  max-width: 500px;
+}
+.hero-btns {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
 
-/* SCROLL ANIMATIONS */
-.fade-up{opacity:0;transform:translateY(32px);transition:opacity 0.65s ease,transform 0.65s ease}
-.fade-up.visible{opacity:1;transform:translateY(0)}
+/* ABOUT SECTION (SCREENSHOT 2 CLONE) */
+.about-section {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+.about-quote-row {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid var(--border);
+}
+.about-quote-img {
+  width: 140px;
+  height: 96px;
+  border-radius: 12px;
+  background: url('images.jpeg') center/cover no-repeat;
+  flex-shrink: 0;
+}
+.about-quote {
+  font-size: clamp(1.2rem, 2.5vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text);
+}
+.about-quote .highlight {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+.about-quote .light-highlight {
+  color: var(--text-muted);
+}
+.about-asymmetric-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 48px;
+  padding-top: 80px;
+  align-items: flex-start;
+}
+.about-col-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+.about-lead {
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text);
+}
+.about-col-center .about-img-portrait {
+  aspect-ratio: 3/4;
+  border-radius: 16px;
+  background: url('gymnast-pose.jpg') center/cover no-repeat;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+}
+.about-col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.about-desc {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.about-img-landscape {
+  aspect-ratio: 4/3;
+  border-radius: 16px;
+  background: url('unnamed-58.jpg') center/cover no-repeat;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+}
 
-/* GALLERY PREVIEW */
-.gallery-section{background:var(--bg)}
-.gallery-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:220px 220px;gap:3px;margin-top:40px}
-.gallery-item{overflow:hidden;position:relative;cursor:pointer}
-.gallery-item:first-child{grid-row:1/3}
-.gallery-placeholder{width:100%;height:100%;transition:filter 0.3s,transform 0.45s}
-.gallery-item:hover .gallery-placeholder{filter:brightness(0.7);transform:scale(1.05)}
+/* PROGRAMS SECTION (SCREENSHOT 3 CLONE) */
+.programs-section {
+  background: var(--light);
+}
+.programs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 60px;
+  gap: 40px;
+}
+.programs-header-desc {
+  max-width: 440px;
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.program-card {
+  position: relative;
+  aspect-ratio: 4/3;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+.program-card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.program-card:hover .program-card-bg {
+  transform: scale(1.08);
+}
+.program-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 13, 20, 0.85) 0%, rgba(10, 13, 20, 0.2) 60%, transparent 100%);
+}
+.program-card-content {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  z-index: 2;
+}
+.program-card-title {
+  font-family: 'Barlow', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+.program-card-age {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.program-card-btn {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.3s;
+}
+.program-card-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--white);
+  stroke-width: 2.5;
+  fill: none;
+  transition: transform 0.3s;
+}
+.program-card:hover .program-card-btn {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+.program-card:hover .program-card-btn svg {
+  transform: rotate(-45deg);
+}
 
+/* COACHES SECTION (SCREENSHOT 4 CLONE) */
+.coaches-section {
+  background: var(--white);
+}
+.coaches-section-header {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  align-items: flex-end;
+  margin-bottom: 60px;
+  gap: 40px;
+}
+.coaches-header-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+.coaches-header-subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.coaches-header-title {
+  font-family: 'Barlow', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 900;
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.coaches-header-title .grey {
+  color: var(--text-muted);
+  font-weight: 500;
+  -webkit-text-stroke: 1.5px var(--border);
+  color: transparent;
+}
+/* SINGLE COACH PROFILE */
+.single-coach-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.02);
+  margin-top: 40px;
+}
+.single-coach-content {
+  padding: 60px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+.single-coach-name {
+  font-family: 'Barlow', sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--text);
+  line-height: 1;
+}
+.single-coach-exp {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary);
+  letter-spacing: 0.05em;
+}
+.single-coach-desc {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.single-coach-achievements {
+  display: flex;
+  gap: 32px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+.coach-achieve-item strong {
+  display: block;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  color: var(--text);
+}
+.coach-achieve-item span {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+  display: block;
+}
+.single-coach-image-wrap {
+  height: 100%;
+  min-height: 440px;
+}
+.single-coach-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  min-height: 440px;
+}
 
-/* TESTIMONIALS */
-.testi-section{background:#0C1022}
-.testi-section .section-title{color:#F1F5F9}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.06);margin-top:48px}
-.testi-card{background:#0C1022;padding:32px}
-.testi-card::before{content:'\201C';font-family:'Inter',sans-serif;font-size:64px;font-weight:400;color:var(--pink);line-height:0.8;display:block;margin-bottom:20px}
-.testi-card p{font-size:15px;font-family:'Inter',sans-serif;font-weight:400;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:20px}
-.testi-author{display:flex;align-items:center;gap:12px;border-top:1px solid rgba(255,255,255,0.07);padding-top:16px}
-.testi-avatar{width:36px;height:36px;background:var(--pink);display:flex;align-items:center;justify-content:center;font-size:12px;font-family:'Barlow',sans-serif;font-weight:800;color:white;flex-shrink:0}
-.testi-name{font-size:13px;font-family:'Barlow',sans-serif;font-weight:800;color:#F1F5F9}
-.testi-role{font-size:12px;font-family:'Inter',sans-serif;font-weight:400;color:rgba(255,255,255,0.35)}
+@media (max-width: 768px) {
+  .single-coach-layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .single-coach-content {
+    padding: 32px 24px;
+  }
+  .single-coach-image-wrap {
+    height: 320px;
+    min-height: auto;
+  }
+  .single-coach-image {
+    min-height: 320px;
+  }
+}
 
-/* ENROLL + MAP */
-.contact-section{background:#080D1A;border-top:1px solid rgba(255,255,255,0.07)}
-.contact-section .section-title{color:#F1F5F9}
-.contact-section .section-sub{color:rgba(255,255,255,0.5)}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:48px}
-.contact-info{display:flex;flex-direction:column;gap:20px;margin-bottom:28px}
-.contact-item{display:flex;gap:16px;align-items:flex-start}
-.contact-item-icon{width:40px;height:40px;background:rgba(224,69,106,0.1);border:1px solid rgba(224,69,106,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.contact-item-icon svg{width:18px;height:18px;stroke:var(--pink);fill:none;stroke-width:2}
-.contact-item-text strong{display:block;font-size:13px;font-family:'Barlow',sans-serif;font-weight:800;margin-bottom:2px;color:#F1F5F9}
-.contact-item-text span{font-size:14px;font-family:'Inter',sans-serif;font-weight:400;color:rgba(255,255,255,0.5)}
-.map-wrap{overflow:hidden;border:1px solid rgba(255,255,255,0.06)}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
-.form-group label{font-size:12px;font-family:'Barlow',sans-serif;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;color:rgba(255,255,255,0.35)}
-.form-group input,.form-group textarea,.form-group select{border:1px solid rgba(255,255,255,0.08);padding:12px 14px;font-family:'Inter',sans-serif;font-size:14px;font-weight:400;color:#F1F5F9;background:#111827;outline:none;transition:border 0.2s;width:100%}
-.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--pink)}
-.form-group select option{background:#111827}
-.whatsapp-btn{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:white;padding:14px 24px;font-size:14px;font-family:'Inter',sans-serif;font-weight:600;cursor:pointer;border:none;margin-top:20px;width:100%;justify-content:center}
-.whatsapp-btn svg{width:20px;height:20px;fill:white}
+.coaches-new-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.coach-new-card {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.03);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.coach-new-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+}
+.coach-new-photo-wrap {
+  height: 260px;
+  background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.coach-new-initials {
+  font-family: 'Barlow', sans-serif;
+  font-size: 72px;
+  font-weight: 900;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 0%, transparent 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.coach-new-role-tag {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 13, 20, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 10px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.coach-new-meta {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--white);
+  flex-grow: 1;
+}
+.coach-new-name {
+  font-family: 'Barlow', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text);
+  text-transform: uppercase;
+}
+.coach-new-experience {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.coach-new-card.highlight {
+  background: var(--primary);
+  border: none;
+  color: var(--white);
+}
+.coach-highlight-inner {
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  gap: 16px;
+}
+.coach-highlight-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+.coach-highlight-title {
+  font-family: 'Barlow', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.coach-highlight-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ACADEMY SECTION (SCREENSHOT 5 CLONE) */
+.academy-section {
+  background: var(--light);
+}
+.academy-section-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 64px;
+  align-items: flex-start;
+}
+.academy-left {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.academy-intro {
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.academy-big-img {
+  aspect-ratio: 16/10;
+  border-radius: 20px;
+  background: url('Safe-Gymnastics-Training.jpg') center/cover no-repeat;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+}
+.academy-right {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.academy-accordion {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+}
+.accordion-item {
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.accordion-header {
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.accordion-title {
+  font-family: 'Barlow', sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text);
+  letter-spacing: 0.02em;
+  transition: color 0.3s;
+}
+.accordion-header:hover .accordion-title {
+  color: var(--primary);
+}
+.accordion-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.accordion-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--text);
+  stroke-width: 2.5;
+  fill: none;
+}
+.accordion-item.active .accordion-icon {
+  transform: rotate(180deg);
+}
+.accordion-item.active .accordion-icon svg {
+  stroke: var(--primary);
+}
+.accordion-item.active .accordion-title {
+  color: var(--primary);
+}
+.accordion-content {
+  max-height: 0;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.accordion-item.active .accordion-content {
+  max-height: 190px;
+}
+.accordion-content-inner {
+  padding-bottom: 24px;
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+.accordion-text-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+.accordion-text-side p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+.accordion-img-side {
+  width: 130px;
+  height: 100px;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  flex-shrink: 0;
+}
+.accordion-footer {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* TESTIMONIALS SECTION */
+.testimonials-section {
+  background: var(--dark);
+  color: var(--white);
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 60px;
+}
+.testimonial-card {
+  background: var(--dark-light);
+  border: 1px solid var(--border-light);
+  padding: 40px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.testimonial-quote {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 32px;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--white);
+}
+.testimonial-name {
+  font-family: 'Barlow', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.testimonial-role {
+  font-size: 12px;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* GALLERY PREVIEW IN HOME */
+.gallery-section {
+  background: var(--white);
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 240px 240px;
+  gap: 12px;
+  margin-top: 48px;
+}
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  cursor: pointer;
+}
+.gallery-item:first-child {
+  grid-row: 1/3;
+}
+.gallery-placeholder {
+  width: 100%;
+  height: 100%;
+  background-size: cover !important;
+  background-position: center !important;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s;
+}
+.gallery-item:hover .gallery-placeholder {
+  transform: scale(1.05);
+  filter: brightness(0.85);
+}
+
+/* ENROLL SECTION */
+.enroll-section {
+  background: var(--dark);
+  color: var(--white);
+}
+.enroll-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 80px;
+  align-items: flex-start;
+  margin-top: 60px;
+}
+.enroll-left {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.enroll-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.enroll-info-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.enroll-info-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(224, 69, 106, 0.1);
+  border: 1px solid rgba(224, 69, 106, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.enroll-info-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--primary);
+  fill: none;
+  stroke-width: 2;
+}
+.enroll-info-text strong {
+  display: block;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.enroll-info-text span {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+}
+.enroll-map-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.enroll-form-wrap {
+  background: var(--dark-light);
+  border: 1px solid var(--border-light);
+  border-radius: 24px;
+  padding: 48px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+.enroll-form-title {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.form-group label {
+  font-size: 11px;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+.form-group input, .form-group select, .form-group textarea {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 14px 18px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.3s, background-color 0.3s;
+  width: 100%;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.06);
+}
+.form-group select option {
+  background: var(--dark-light);
+  color: var(--white);
+}
 
 /* FOOTER */
-footer{background:#04080F;color:rgba(255,255,255,0.35);padding:48px 5% 24px;border-top:1px solid var(--border)}
-.footer-inner{max-width:1200px;margin:0 auto}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:1px solid var(--border)}
-.footer-brand p{font-size:14px;font-family:'Inter',sans-serif;font-weight:400;line-height:1.7;color:var(--muted);margin-top:12px;max-width:280px}
-.footer-col h4{font-size:12px;font-family:'Barlow',sans-serif;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--text);margin-bottom:16px}
-.footer-col a{display:block;font-size:14px;font-family:'Inter',sans-serif;font-weight:400;color:var(--muted);margin-bottom:8px;transition:color 0.2s;cursor:pointer}
-.footer-col a:hover{color:var(--text)}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;font-size:13px}
-
-/* PHGE HEADER */
-.page-header{padding:48px 5% 40px;border-bottom:1px solid var(--border);background:var(--white)}
-.page-header-inner{max-width:1200px;margin:0 auto}
-.back-btn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-family:'Inter',sans-serif;font-weight:600;color:var(--mid);cursor:pointer;margin-bottom:24px;transition:color 0.2s;background:none;border:none;padding:0}
-.back-btn:hover{color:var(--pink)}
-.back-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.5}
-
-/* GALLERY PHGE */
-.gallery-page-body{padding:48px 5% 80px;background:var(--bg)}
-.gallery-page-inner{max-width:1200px;margin:0 auto}
-.filter-bar{display:flex;gap:10px;margin-bottom:32px;flex-wrap:wrap}
-.filter-btn{padding:8px 18px;font-size:13px;font-family:'Inter',sans-serif;font-weight:600;border:1.5px solid var(--border);background:white;cursor:pointer;color:var(--mid);transition:all 0.2s}
-.filter-btn.active,.filter-btn:hover{background:var(--pink);border-color:var(--pink);color:white}
-.gallery-full-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
-.g-item{aspect-ratio:1;overflow:hidden;cursor:pointer;position:relative}
-.g-item-inner{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;transition:transform 0.3s,filter 0.3s}
-.g-item:hover .g-item-inner{transform:scale(1.05);filter:brightness(0.75)}
-.g-item-label{position:absolute;bottom:0;left:0;right:0;padding:10px 12px;background:linear-gradient(transparent,rgba(0,0,0,0.7));opacity:0;transition:opacity 0.25s}
-.g-item:hover .g-item-label{opacity:1}
-.g-item-label span{font-size:11px;font-family:'Inter',sans-serif;font-weight:600;color:white;letter-spacing:1px;text-transform:uppercase}
+footer {
+  background: #06090F;
+  color: rgba(255, 255, 255, 0.4);
+  padding: 80px 5% 40px;
+  border-top: 1px solid var(--border-light);
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid var(--border-light);
+}
+.footer-brand .logo {
+  margin-bottom: 16px;
+}
+.footer-brand p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.45);
+}
+.footer-col h4 {
+  font-family: 'Barlow', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+.footer-col a {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 12px;
+  transition: color 0.3s;
+}
+.footer-col a:hover {
+  color: var(--primary);
+}
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
+  font-size: 13px;
+}
 
 /* LIGHTBOX */
-/* CLASS DRAWER */
-.drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:900;opacity:0;pointer-events:none;transition:opacity 0.3s ease}
-.drawer-overlay.open{opacity:1;pointer-events:all}
-.class-drawer{position:fixed;top:0;right:0;bottom:0;width:min(520px,100vw);background:var(--white);z-index:901;transform:translateX(100%);transition:transform 0.38s cubic-bezier(0.4,0,0.2,1);overflow-y:auto;display:flex;flex-direction:column}
-.class-drawer.open{transform:translateX(0)}
-.drawer-hero{height:220px;background-size:cover;background-position:center;position:relative;flex-shrink:0}
-.drawer-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.72) 0%,rgba(0,0,0,0.18) 100%)}
-.drawer-close{position:absolute;top:16px;right:16px;width:36px;height:36px;background:rgba(0,0,0,0.45);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;border-radius:50%}
-.drawer-close svg{width:18px;height:18px;stroke:white;stroke-width:2.5;fill:none}
-.drawer-num{position:absolute;bottom:20px;left:28px;font-family:'Barlow',sans-serif;font-size:64px;font-weight:800;color:rgba(255,255,255,0.1);line-height:1}
-.drawer-body{padding:32px 28px 40px;flex:1}
-.drawer-age-tag{display:inline-block;font-size:10px;font-family:'Inter',sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--pink);background:var(--pink-dim);border:1px solid rgba(224,69,106,0.2);padding:4px 12px;margin-bottom:14px}
-.drawer-title{font-family:'Barlow',sans-serif;font-size:34px;font-weight:800;color:var(--dark);line-height:1;margin-bottom:12px}
-.drawer-desc{font-size:15px;font-family:'Inter',sans-serif;color:var(--mid);line-height:1.75;margin-bottom:28px}
-.drawer-meta{display:flex;flex-direction:column;gap:12px;padding:20px;background:var(--bg);margin-bottom:24px}
-.drawer-meta-row{display:flex;align-items:flex-start;gap:14px}
-.drawer-meta-icon{width:34px;height:34px;background:var(--white);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.drawer-meta-icon svg{width:15px;height:15px;stroke:var(--pink);stroke-width:2;fill:none}
-.drawer-meta-text strong{display:block;font-size:11px;font-family:'Inter',sans-serif;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
-.drawer-meta-text span{font-size:14px;font-family:'Inter',sans-serif;font-weight:500;color:var(--text)}
-.drawer-learn-title{font-size:11px;font-family:'Inter',sans-serif;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
-.drawer-learn-list{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:32px}
-.drawer-learn-list li{display:flex;align-items:center;gap:10px;font-size:14px;font-family:'Inter',sans-serif;color:var(--text)}
-.drawer-learn-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--pink);flex-shrink:0}
-.drawer-enroll{width:100%;background:var(--pink);color:white;border:none;padding:16px;font-size:14px;font-family:'Inter',sans-serif;font-weight:700;letter-spacing:0.5px;cursor:pointer;transition:background 0.2s}
-.drawer-enroll:hover{background:#c73a5e}
-
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.96);z-index:999;display:none;align-items:center;justify-content:center;flex-direction:column;gap:16px}
-.lightbox.open{display:flex}
-.lightbox-close{position:absolute;top:20px;right:28px;font-size:36px;color:white;cursor:pointer;font-family:'Inter',sans-serif;font-weight:300;line-height:1;background:none;border:none}
-.lightbox-img{width:min(90vw,860px);height:min(80vh,560px);background-size:contain;background-repeat:no-repeat;background-position:center}
-.lightbox-caption{font-size:14px;font-family:'Inter',sans-serif;font-weight:500;color:rgba(255,255,255,0.45);letter-spacing:0.5px}
-
-/* WHATSAPP FLOAT */
-.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;display:flex;align-items:center;gap:12px;opacity:0;transform:translateY(20px);animation:waEntrance 0.5s cubic-bezier(0.34,1.56,0.64,1) 1s forwards}
-@keyframes waEntrance{to{opacity:1;transform:translateY(0)}}
-.wa-btn{width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.38),0 2px 8px rgba(0,0,0,0.14);transition:transform 0.25s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.25s ease;cursor:pointer;text-decoration:none;flex-shrink:0}
-.wa-btn:hover{transform:scale(1.12);box-shadow:0 8px 32px rgba(37,211,102,0.52),0 4px 14px rgba(0,0,0,0.18)}
-.wa-btn svg{width:30px;height:30px;fill:white}
-.wa-tooltip{background:#1A1A1A;color:white;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;padding:8px 14px;border-radius:8px;white-space:nowrap;letter-spacing:0.2px;opacity:0;transform:translateX(8px);transition:opacity 0.2s ease,transform 0.2s ease;pointer-events:none;position:relative}
-.wa-tooltip::after{content:'';position:absolute;right:-5px;top:50%;transform:translateY(-50%);border:5px solid transparent;border-left-color:#1A1A1A;border-right:none}
-.wa-float:hover .wa-tooltip{opacity:1;transform:translateX(0)}
-
-/* MOBILE */
-@media(max-width:768px){
-  .nav-links{display:none}
-  .nav-cta{padding:8px 14px;font-size:12px}
-  .hero{grid-template-columns:1fr;min-height:100svh}
-  .hero-content{padding:100px 28px 48px;order:1}
-  .hero-photo{min-height:240px;order:2}
-  .hero-photo-overlay{background:linear-gradient(to bottom,var(--dark) 0%,transparent 40%)}
-  h1{font-size:36px !important}
-  .hero-sub{max-width:100%}
-  .hero-actions{flex-wrap:wrap;gap:12px}
-  .hero-stats{flex-wrap:wrap;gap:24px}
-  .class-item{height:auto;min-height:120px}
-  .class-item-inner{grid-template-columns:56px 1fr;gap:16px;padding:20px 24px}
-  .class-item-schedule,.class-item-age,.class-item-arrow{display:none}
-  .class-item-num{font-size:36px}
-  .class-item-main h3{font-size:18px}
-  section{padding:48px 5%}
-  .section-title{font-size:28px}
-  .classes-header{flex-direction:column;align-items:flex-start;gap:16px}
-  .coaches-grid{grid-template-columns:1fr 1fr}
-  .coach-card{border-right:none;border-bottom:1px solid #E0DED9}
-  .gallery-grid{grid-template-columns:1fr;grid-template-rows:auto}
-  .gallery-item{height:200px}
-  .gallery-item:first-child{grid-row:auto}
-  .testi-grid{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr;gap:40px}
-  .form-row{grid-template-columns:1fr}
-  .footer-top{grid-template-columns:1fr 1fr;gap:32px}
-  .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 13, 20, 0.98);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
 }
-@media(max-width:480px){
-  h1{font-size:28px !important}
-  .coaches-grid{grid-template-columns:1fr}
-  .footer-top{grid-template-columns:1fr}
-  .wa-float{bottom:16px;right:16px}
-  .wa-tooltip{display:none}
+.lightbox.open {
+  display: flex;
+}
+.lightbox-close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 32px;
+  color: var(--white);
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-weight: 300;
+}
+.lightbox-img {
+  width: min(90vw, 900px);
+  height: min(75vh, 600px);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 8px;
+}
+.lightbox-caption {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 500;
+}
+
+/* PROGRAM DETAIL DRAWER */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 13, 20, 0.6);
+  z-index: 1500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.drawer-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.class-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(520px, 100vw);
+  background: var(--white);
+  z-index: 1501;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+.class-drawer.open {
+  transform: translateX(0);
+}
+.drawer-hero {
+  height: 240px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  flex-shrink: 0;
+}
+.drawer-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 13, 20, 0.8) 0%, rgba(10, 13, 20, 0.1) 100%);
+}
+.drawer-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: rgba(10, 13, 20, 0.4);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+.drawer-close:hover {
+  background: rgba(10, 13, 20, 0.6);
+}
+.drawer-close svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--white);
+  stroke-width: 2.5;
+  fill: none;
+}
+.drawer-num {
+  position: absolute;
+  bottom: 20px;
+  left: 32px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 72px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.15);
+  line-height: 1;
+}
+.drawer-body {
+  padding: 40px 32px;
+  flex: 1;
+}
+.drawer-age-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: var(--primary-light);
+  border: 1px solid var(--primary-border);
+  padding: 4px 14px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
+.drawer-title {
+  font-family: 'Barlow', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--dark);
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.drawer-desc {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+.drawer-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  background: var(--light);
+  border-radius: 16px;
+  margin-bottom: 32px;
+}
+.drawer-meta-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.drawer-meta-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.drawer-meta-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--primary);
+  stroke-width: 2.5;
+  fill: none;
+}
+.drawer-meta-text strong {
+  display: block;
+  font-size: 11px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.drawer-meta-text span {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+.drawer-learn-title {
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.drawer-learn-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.drawer-learn-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--text);
+}
+.drawer-learn-list li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
+}
+.drawer-enroll {
+  width: 100%;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 16px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.drawer-enroll:hover {
+  background: var(--primary-hover);
+}
+
+/* WHATSAPP FLOAT BUTTON */
+.wa-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: waEntrance 0.5s cubic-bezier(0.34,1.56,0.64,1) 1s forwards;
+}
+@keyframes waEntrance {
+  to { opacity: 1; transform: translateY(0); }
+}
+.wa-btn {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.35), 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s ease;
+  cursor: pointer;
+}
+.wa-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(37,211,102,0.45), 0 4px 12px rgba(0,0,0,0.15);
+}
+.wa-btn svg {
+  width: 28px;
+  height: 28px;
+  fill: var(--white);
+}
+.wa-tooltip {
+  background: var(--dark);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 8px;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.wa-tooltip::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-left-color: var(--dark);
+  border-right: none;
+}
+.wa-float:hover .wa-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* FADE-UP ANIMATIONS */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ══════════════ GALLERY PAGE ══════════════ */
+.gallery-page-header {
+  padding: 140px 5% 40px;
+  border-bottom: 1px solid var(--border);
+  background: var(--white);
+}
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  margin-bottom: 24px;
+  background: none;
+  border: none;
+  transition: color 0.3s;
+}
+.back-btn:hover {
+  color: var(--primary);
+}
+.back-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.5;
+}
+.gallery-page-body {
+  padding: 60px 5% 100px;
+  background: var(--light);
+}
+.filter-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  padding: 10px 22px;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  border-radius: 100px;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: all 0.3s;
+}
+.filter-btn.active, .filter-btn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+}
+.gallery-full-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.g-item {
+  aspect-ratio: 1;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+.g-item-inner {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s;
+}
+.g-item:hover .g-item-inner {
+  transform: scale(1.06);
+  filter: brightness(0.8);
+}
+.g-item-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 20px;
+  background: linear-gradient(transparent, rgba(10, 13, 20, 0.8));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.g-item:hover .g-item-label {
+  opacity: 1;
+}
+.g-item-label span {
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ══════════════ ABOUT PAGE ══════════════ */
+.about-page-body {
+  padding: 60px 5% 100px;
+  background: var(--white);
+}
+.about-dark-hero {
+  background: var(--dark);
+  color: var(--white);
+  padding: 120px 5% 80px;
+  border-bottom: 1px solid var(--border-light);
+}
+.about-dark-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.about-stats-panel {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+.about-stat-row {
+  padding: 32px 40px;
+  border-bottom: 1px solid var(--border-light);
+  background: var(--dark-light);
+}
+.about-stat-row:last-child {
+  border-bottom: none;
+}
+.about-stat-num {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 900;
+  font-size: 48px;
+  color: var(--primary);
+  line-height: 1;
+}
+.about-stat-label {
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 8px;
+}
+.about-detail-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+.about-philosophy-lead {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--text);
+  margin-top: 24px;
+  margin-bottom: 20px;
+}
+.about-philosophy-desc {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+.about-features-list {
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.about-feature-box {
+  padding: 28px 36px;
+  border-bottom: 1px solid var(--border);
+}
+.about-feature-box:last-child {
+  border-bottom: none;
+}
+.about-feature-title {
+  font-family: 'Barlow', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.about-feature-text {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* RESPONSIVE LAYOUT OVERRIDES */
+@media (max-width: 1024px) {
+  nav {
+    height: 72px;
+  }
+  .nav-links {
+    gap: 20px;
+  }
+  .about-asymmetric-grid {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 36px;
+  }
+  .about-col-center {
+    display: none;
+  }
+  .programs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .coaches-new-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .academy-section-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .gallery-full-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 0 24px;
+  }
+  nav.scrolled {
+    top: 10px;
+    left: 20px;
+    right: 20px;
+    padding: 0 20px;
+  }
+  .nav-links {
+    display: none;
+  }
+  .hero {
+    min-height: 100vh;
+    padding: 100px 24px 60px;
+  }
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+  .hero-title {
+    font-size: clamp(2.5rem, 12vw, 4.2rem);
+  }
+  .about-quote-row {
+    flex-direction: column;
+    gap: 24px;
+    text-align: center;
+  }
+  .about-asymmetric-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .programs-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .coaches-section-header {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+  .enroll-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .enroll-form-wrap {
+    padding: 32px 24px;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+  .about-dark-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .about-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .gallery-full-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-btns {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-btns .btn {
+    width: 100%;
+  }
+  .programs-grid {
+    grid-template-columns: 1fr;
+  }
+  .coaches-new-grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .gallery-item {
+    height: 200px;
+  }
+  .gallery-item:first-child {
+    grid-row: auto;
+    height: 200px;
+  }
+  .wa-float {
+    bottom: 20px;
+    right: 20px;
+  }
+  .wa-tooltip {
+    display: none;
+  }
+  .gallery-full-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
 <body>
 
-<nav>
+<!-- NAVIGATION -->
+<nav id="navbar">
   <div class="nav-inner">
     <div class="logo" onclick="showPage('home')">
-      <div class="logo-mark">HG</div>
+      <div class="logo-icon">HG</div>
       <div class="logo-text">
-        <span>HEMANTH GYMNASTICS</span>
+        <span>Hemanth</span>
+        <span>Gymnastics</span>
       </div>
     </div>
     <div class="nav-links">
-      <a onclick="goToSection('classes')">Classes</a>
+      <a onclick="goToSection('classes')">Programs</a>
       <a onclick="goToSection('coaches')">Coaches</a>
       <a onclick="showPage('gallery')">Gallery</a>
+      <a onclick="showPage('about')">About Us</a>
       <a onclick="goToSection('enroll')">Contact</a>
     </div>
-    <button class="nav-cta" onclick="goToSection('enroll')">Enroll Now</button>
+    <button class="btn btn-primary nav-cta" onclick="goToSection('enroll')">Contact Us ↗</button>
   </div>
 </nav>
 
-<!-- ══════════════ HOME ══════════════ -->
+<!-- ══════════════ PAGE: HOME ══════════════ -->
 <div id="page-home" class="page active">
 
-<div class="hero">
-  <div class="hero-content">
-    <div class="hero-badge"><span></span>Hyderabad, Telangana</div>
-    <h1>Train Like<br/>A Champion.<br/><em>Flip Higher.</em></h1>
-    <p class="hero-sub">Professional gymnastics training for all ages and skill levels — from tiny tots to competitive athletes. We build strength, discipline, and confidence.</p>
-    <div class="hero-actions">
-      <button class="btn-primary" onclick="goToSection('enroll')">
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-        Enroll Now
-      </button>
-      <button class="btn-secondary" onclick="goToSection('classes')">View Classes</button>
-    </div>
-    <div class="hero-divider"></div>
-    <div class="hero-stats">
-      <div class="stat"><strong>200+</strong><span>Active Students</span></div>
-      <div class="stat"><strong>8</strong><span>Expert Coaches</span></div>
-      <div class="stat"><strong>12+</strong><span>Years Training</span></div>
-    </div>
-  </div>
-  <div class="hero-photo">
-    <div class="hero-photo-overlay"></div>
-  </div>
-</div>
-
-<!-- CLASSES -->
-<section class="classes-section" id="classes">
-  <div class="section-inner">
-    <div class="classes-header fade-up">
-      <div>
-        <div class="section-label">Our Programmes</div>
-        <div class="section-title">Classes &amp; Batches</div>
-        <p class="section-sub">Structured batches by age and skill level. Small groups for personal coaching attention.</p>
-      </div>
-      <button class="btn-secondary" onclick="goToSection('enroll')">Enroll in a Batch →</button>
-    </div>
-    <div class="class-list">
-      <div class="class-item fade-up" style="background-image:url('Featured-Image-5.jpg');background-position:center 30%" onclick="openDrawer('tiny-tots')">
-        <div class="class-item-overlay"></div>
-        <div class="class-item-inner">
-          <div class="class-item-num">01</div>
-          <div class="class-item-main"><h3>Tiny Tots</h3><p>Movement, balance and basic body coordination through fun gymnastics play.</p></div>
-          <div class="class-item-schedule"><strong>Tue / Thu</strong>10:00 – 11:00 AM · Coach: Priya Sharma</div>
-          <div class="class-item-age">Ages 3–5</div>
-          <svg class="class-item-arrow" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-      </div>
-      <div class="class-item fade-up" style="background-image:url('images.jpeg');transition-delay:0.06s" onclick="openDrawer('beginners')">
-        <div class="class-item-overlay"></div>
-        <div class="class-item-inner">
-          <div class="class-item-num">02</div>
-          <div class="class-item-main"><h3>Beginners</h3><p>Cartwheels, forward rolls, handstands and basic bar work. Safe and structured.</p></div>
-          <div class="class-item-schedule"><strong>Mon / Wed / Fri</strong>5:30 – 6:30 PM · Coach: Rahul Mehta</div>
-          <div class="class-item-age">Ages 6–9</div>
-          <svg class="class-item-arrow" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-      </div>
-      <div class="class-item fade-up" style="background-image:url('gymnast-pose.jpg');background-position:center 30%;transition-delay:0.12s" onclick="openDrawer('intermediate')">
-        <div class="class-item-overlay"></div>
-        <div class="class-item-inner">
-          <div class="class-item-num">03</div>
-          <div class="class-item-main"><h3>Intermediate</h3><p>Back walkovers, round-offs, aerials and floor routines. Beam and bars included.</p></div>
-          <div class="class-item-schedule"><strong>Mon / Wed / Fri</strong>4:00 – 5:30 PM · Coach: Ananya Verma</div>
-          <div class="class-item-age">Ages 9–13</div>
-          <svg class="class-item-arrow" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-      </div>
-      <div class="class-item fade-up" style="background-image:url('Safe-Gymnastics-Training.jpg');transition-delay:0.18s" onclick="openDrawer('advanced')">
-        <div class="class-item-overlay"></div>
-        <div class="class-item-inner">
-          <div class="class-item-num">04</div>
-          <div class="class-item-main"><h3>Advanced &amp; Competitive</h3><p>Competition-level training. Full routines, strength conditioning and competition prep.</p></div>
-          <div class="class-item-schedule"><strong>Mon – Fri</strong>6:30 – 8:00 AM · Coach: Kiran Joshi</div>
-          <div class="class-item-age">Ages 12–17</div>
-          <svg class="class-item-arrow" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-      </div>
-      <div class="class-item fade-up" style="background-image:url('images-3.jpeg');transition-delay:0.24s" onclick="openDrawer('artistic')">
-        <div class="class-item-overlay"></div>
-        <div class="class-item-inner">
-          <div class="class-item-num">05</div>
-          <div class="class-item-main"><h3>Artistic Gymnastics</h3><p>Vault, bars, beam and floor events for students aiming at state and national competitions.</p></div>
-          <div class="class-item-schedule"><strong>Tue / Thu / Sat</strong>5:00 – 7:00 PM · Coach: Deepa Nair</div>
-          <div class="class-item-age">Ages 10–18</div>
-          <svg class="class-item-arrow" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-      </div>
-      <div class="class-item fade-up" style="background-image:url('images-2.jpeg');background-position:center 75%;transition-delay:0.30s" onclick="openDrawer('adult')">
-        <div class="class-item-overlay"></div>
-        <div class="class-item-inner">
-          <div class="class-item-num">06</div>
-          <div class="class-item-main"><h3>Adult Fitness Gymnastics</h3><p>Flexibility, core strength and body awareness for adults. No prior experience needed.</p></div>
-          <div class="class-item-schedule"><strong>Sat / Sun</strong>8:00 – 9:30 AM · Coach: Priya Sharma</div>
-          <div class="class-item-age">Ages 18+</div>
-          <svg class="class-item-arrow" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge"><span></span>Hyderabad, Telangana</div>
+        <h1 class="hero-title">Train.<br/>Flip.<br/><em>Succeed.</em></h1>
+        <p class="hero-desc">Professional gymnastics training for all ages and skill levels — from tiny tots to competitive athletes. We build strength, discipline, and core confidence.</p>
+        <div class="hero-btns">
+          <button class="btn btn-primary" onclick="goToSection('enroll')">Book a Trial ↗</button>
+          <button class="btn btn-outline" onclick="goToSection('classes')">View Programs ↗</button>
         </div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- COACHES -->
-<section class="coaches-section" id="coaches">
-  <div class="section-inner">
-    <div class="section-label fade-up">Meet the Team</div>
-    <div class="section-title fade-up" style="transition-delay:0.08s;color:#0C1022">Our Coaches</div>
-    <p class="section-sub fade-up" style="transition-delay:0.16s">Certified, experienced, and passionate — every coach at Hemanth Gymnastics brings years of competitive and teaching expertise.</p>
-    <div class="coaches-grid">
-      <div class="coach-card fade-up">
-        <div class="coach-photo">
-          <div class="coach-initials">PS</div>
-          <div class="coach-role-tag"><span>Head Coach · Certified Level 3</span></div>
+  <!-- ABOUT / QUOTE SECTION (SCREENSHOT 2 CLONE) -->
+  <section class="about-section">
+    <div class="section-inner">
+      
+      <!-- Top Quote Banner -->
+      <div class="about-quote-row fade-up">
+        <div class="about-quote-img"></div>
+        <blockquote class="about-quote">
+          At Hemanth Gymnastics, we build <span class="highlight">confident gymnasts</span>, <span class="highlight">strong teamwork</span>, and <span class="highlight">lifelong discipline</span> through professional coaching.
+        </blockquote>
+      </div>
+
+      <!-- Asymmetrical Grid Layout -->
+      <div class="about-asymmetric-grid">
+        <div class="about-col-left fade-up">
+          <span class="badge">About Us</span>
+          <h2 class="about-lead">We're shaping Hyderabad's next generation of gymnasts with dedication, modern facilities, and values that go beyond the mat.</h2>
+          <button class="btn btn-accent" onclick="goToSection('enroll')">Get in Touch ↗</button>
         </div>
-        <div class="coach-body">
-          <h3>Priya Sharma</h3>
-          <div class="coach-exp">14 Years Experience</div>
-          <p>Former state-level gymnast. Specialises in Tiny Tots and Adult Fitness with a patient, nurturing approach.</p>
+        <div class="about-col-center fade-up" style="transition-delay: 0.1s">
+          <div class="about-img-portrait"></div>
+        </div>
+        <div class="about-col-right fade-up" style="transition-delay: 0.2s">
+          <p class="about-desc">Our mission is to nurture young talent with skilled coaching, posture correction, spatial awareness, and a spirit of true sportsmanship.</p>
+          <div class="about-img-landscape"></div>
         </div>
       </div>
-      <div class="coach-card fade-up" style="transition-delay:0.1s">
-        <div class="coach-photo">
-          <div class="coach-initials">RM</div>
-          <div class="coach-role-tag"><span>Junior Coach · State Champion 2018</span></div>
-        </div>
-        <div class="coach-body">
-          <h3>Rahul Mehta</h3>
-          <div class="coach-exp">8 Years Experience</div>
-          <p>Maharashtra state gymnastics champion. Specialises in beginner programmes and floor work technique.</p>
-        </div>
-      </div>
-      <div class="coach-card fade-up" style="transition-delay:0.2s">
-        <div class="coach-photo">
-          <div class="coach-initials">AV</div>
-          <div class="coach-role-tag"><span>Artistic Coach · National Level</span></div>
-        </div>
-        <div class="coach-body">
-          <h3>Ananya Verma</h3>
-          <div class="coach-exp">10 Years Experience</div>
-          <p>National-level gymnast with 6 gold medals. Intermediate and advanced beam and bars specialist.</p>
-        </div>
-      </div>
-      <div class="coach-card fade-up" style="transition-delay:0.3s">
-        <div class="coach-photo">
-          <div class="coach-initials">KJ</div>
-          <div class="coach-role-tag"><span>Conditioning · SAI Trained</span></div>
-        </div>
-        <div class="coach-body">
-          <h3>Kiran Joshi</h3>
-          <div class="coach-exp">9 Years Experience</div>
-          <p>SAI-trained conditioning coach. Runs our advanced and competitive batches with a focus on strength and competition prep.</p>
-        </div>
-      </div>
+
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- GALLERY PREVIEW -->
-<section class="gallery-section">
-  <div class="section-inner">
-    <div class="fade-up" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px">
-      <div>
-        <div class="section-label">Gallery</div>
-        <div class="section-title" style="color:var(--text)">Inside Our Academy</div>
+  <!-- PROGRAMS SECTION (SCREENSHOT 3 CLONE) -->
+  <section class="programs-section" id="classes">
+    <div class="section-inner">
+      <div class="programs-header fade-up">
+        <h2 class="section-title-outline">OUR <span class="solid">PROGRAMS</span></h2>
+        <p class="programs-header-desc">Comprehensive training programs crafted for every age, skill level, and ambition on the journey to athletic excellence.</p>
       </div>
-      <button class="btn-secondary" onclick="showPage('gallery')">View All Photos →</button>
-    </div>
-    <div class="gallery-grid fade-up" style="transition-delay:0.1s">
-      <div class="gallery-item" style="grid-row:1/3" onclick="showPage('gallery')">
-        <div class="gallery-placeholder" style="height:100%;background:url('unnamed-63.jpg') center/cover no-repeat"></div>
-      </div>
-      <div class="gallery-item" onclick="showPage('gallery')">
-        <div class="gallery-placeholder" style="height:220px;background:url('unnamed-62.jpg') center/cover no-repeat"></div>
-      </div>
-      <div class="gallery-item" onclick="showPage('gallery')">
-        <div class="gallery-placeholder" style="height:220px;background:url('unnamed-55.jpg') center/cover no-repeat"></div>
-      </div>
-      <div class="gallery-item" onclick="showPage('gallery')">
-        <div class="gallery-placeholder" style="height:220px;background:url('unnamed-54.jpg') center/cover no-repeat"></div>
-      </div>
-      <div class="gallery-item" onclick="showPage('gallery')">
-        <div class="gallery-placeholder" style="height:220px;background:url('unnamed-53.jpg') center/cover no-repeat"></div>
-      </div>
-    </div>
-  </div>
-</section>
 
-
-<!-- TESTIMONIALS -->
-<section class="testi-section">
-  <div class="section-inner">
-    <div class="section-label">What Parents Say</div>
-    <div class="section-title">Student Stories</div>
-    <div class="testi-grid">
-      <div class="testi-card">
-        <p>My daughter trained here for two years and the transformation is incredible. She went from shy and uncoordinated to performing at state level. The coaches are truly exceptional.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">SP</div>
-          <div><div class="testi-name">Sunita Pawar</div><div class="testi-role">Parent of Riya, Age 11</div></div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <p>The Tiny Tots programme was the best decision for our 4-year-old. Priya Ma'am has such a patient way with little ones. Vedant looks forward to every single class.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">AK</div>
-          <div><div class="testi-name">Amit Kulkarni</div><div class="testi-role">Parent of Vedant, Age 4</div></div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <p>I joined the adult fitness batch with zero gymnastics background. Six months in and my flexibility and core strength are the best they've ever been. Highly recommend!</p>
-        <div class="testi-author">
-          <div class="testi-avatar">NJ</div>
-          <div><div class="testi-name">Neha Joshi</div><div class="testi-role">Adult Fitness Batch · Age 28</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ENROLL + LOCATION -->
-<section class="contact-section" id="enroll">
-  <div class="section-inner">
-    <div class="section-label">Join Us</div>
-    <div class="section-title">Enroll Your Child</div>
-    <p class="section-sub">Fill the form and we'll reach out within 24 hours to confirm your batch and schedule a free trial class.</p>
-    <div class="contact-grid">
-      <div>
-        <div style="border:1px solid rgba(255,255,255,0.08);padding:36px">
-          <p style="font-family:'Inter',sans-serif;font-size:22px;font-weight:400;margin-bottom:24px;color:#F1F5F9">Registration Form</p>
-          <div class="form-row">
-            <div class="form-group"><label>Full Name</label><input type="text" placeholder="Student's full name"/></div>
-            <div class="form-group"><label>Age</label><input type="number" placeholder="Age in years" min="3" max="60"/></div>
+      <div class="programs-grid">
+        
+        <!-- Tiny Tots -->
+        <div class="program-card fade-up" onclick="openDrawer('tiny-tots')">
+          <div class="program-card-bg" style="background-image: url('Featured-Image-5.jpg'); background-position: center 30%;"></div>
+          <div class="program-card-overlay"></div>
+          <div class="program-card-content">
+            <h3 class="program-card-title">Tiny Tots</h3>
+            <span class="program-card-age">Ages 3–5</span>
           </div>
-          <div class="form-group">
-            <label>Batch Interested In</label>
-            <select>
-              <option value="">Select a batch</option>
-              <option>01 — Tiny Tots (Ages 3–5) · Tue/Thu 10–11 AM</option>
-              <option>02 — Beginners (Ages 6–9) · Mon/Wed/Fri 5:30–6:30 PM</option>
-              <option>03 — Intermediate (Ages 9–13) · Mon/Wed/Fri 4–5:30 PM</option>
-              <option>04 — Advanced &amp; Competitive (Ages 12–17) · Mon–Fri 6:30–8 AM</option>
-              <option>05 — Artistic Gymnastics (Ages 10–18) · Tue/Thu/Sat 5–7 PM</option>
-              <option>06 — Adult Fitness (Ages 18+) · Sat/Sun 8–9:30 AM</option>
-            </select>
+          <button class="program-card-btn" aria-label="View Tiny Tots Batch"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+
+        <!-- Beginners -->
+        <div class="program-card fade-up" onclick="openDrawer('beginners')" style="transition-delay: 0.05s">
+          <div class="program-card-bg" style="background-image: url('images.jpeg')"></div>
+          <div class="program-card-overlay"></div>
+          <div class="program-card-content">
+            <h3 class="program-card-title">Beginners</h3>
+            <span class="program-card-age">Ages 6–9</span>
           </div>
-          <div class="form-row">
-            <div class="form-group"><label>Mobile Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"/></div>
-            <div class="form-group"><label>Email ID</label><input type="email" placeholder="your@email.com"/></div>
+          <button class="program-card-btn" aria-label="View Beginners Batch"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+
+        <!-- Intermediate -->
+        <div class="program-card fade-up" onclick="openDrawer('intermediate')" style="transition-delay: 0.1s">
+          <div class="program-card-bg" style="background-image: url('gymnast-pose.jpg'); background-position: center 30%;"></div>
+          <div class="program-card-overlay"></div>
+          <div class="program-card-content">
+            <h3 class="program-card-title">Intermediate</h3>
+            <span class="program-card-age">Ages 9–13</span>
           </div>
-          <button class="btn-primary" style="width:100%;justify-content:center;padding:15px;margin-top:4px">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-            Submit Registration
-          </button>
+          <button class="program-card-btn" aria-label="View Intermediate Batch"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+
+        <!-- Advanced -->
+        <div class="program-card fade-up" onclick="openDrawer('advanced')" style="transition-delay: 0.15s">
+          <div class="program-card-bg" style="background-image: url('Safe-Gymnastics-Training.jpg')"></div>
+          <div class="program-card-overlay"></div>
+          <div class="program-card-content">
+            <h3 class="program-card-title">Advanced &amp; Competitive</h3>
+            <span class="program-card-age">Ages 12–17</span>
+          </div>
+          <button class="program-card-btn" aria-label="View Advanced Batch"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+
+        <!-- Artistic -->
+        <div class="program-card fade-up" onclick="openDrawer('artistic')" style="transition-delay: 0.2s">
+          <div class="program-card-bg" style="background-image: url('images-3.jpeg')"></div>
+          <div class="program-card-overlay"></div>
+          <div class="program-card-content">
+            <h3 class="program-card-title">Artistic Gymnastics</h3>
+            <span class="program-card-age">Ages 10–18</span>
+          </div>
+          <button class="program-card-btn" aria-label="View Artistic Batch"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+
+        <!-- Adult Fitness -->
+        <div class="program-card fade-up" onclick="openDrawer('adult')" style="transition-delay: 0.25s">
+          <div class="program-card-bg" style="background-image: url('images-2.jpeg'); background-position: center 75%;"></div>
+          <div class="program-card-overlay"></div>
+          <div class="program-card-content">
+            <h3 class="program-card-title">Adult Fitness</h3>
+            <span class="program-card-age">Ages 18+</span>
+          </div>
+          <button class="program-card-btn" aria-label="View Adult Batch"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COACHES SECTION (SCREENSHOT 4 CLONE) -->
+  <section class="coaches-section" id="coaches">
+    <div class="section-inner">
+      
+      <div class="coaches-section-header fade-up">
+        <div class="coaches-header-left">
+          <span class="badge">Meet Our Coaches</span>
+          <p class="coaches-header-subtitle">Experienced mentors dedicated to building discipline, skill, and confidence in every student.</p>
+        </div>
+        <h2 class="coaches-header-title">ELITE COACHES, <span class="grey">BUILDING</span> FUTURE <span class="grey">CHAMPIONS</span></h2>
+      </div>
+
+      <div class="single-coach-layout fade-up">
+        <div class="single-coach-content">
+          <span class="badge">Head Coach &amp; Founder</span>
+          <h3 class="single-coach-name">Hemanth</h3>
+          <span class="single-coach-exp">12+ Years Professional Training Experience</span>
+          <p class="single-coach-desc">Hemanth is the founder and head trainer at Hemanth Gymnastics Academy. With over 12 years of coaching and competitive experience, he has built a dedicated program focusing on core strength, safe tumbling techniques, and gradual athletic progression. He treats every student with equal encouragement, creating a friendly, disciplined, and supportive training environment.</p>
+          <div class="single-coach-achievements">
+            <div class="coach-achieve-item"><strong>12+ Years</strong><span>Coaching Track</span></div>
+            <div class="coach-achieve-item"><strong>10+</strong><span>Spotting Certs</span></div>
+            <div class="coach-achieve-item"><strong>State-Level</strong><span>Medal Pathway</span></div>
+          </div>
+          <button class="btn btn-accent" onclick="goToSection('enroll')">Enroll in a Batch ↗</button>
+        </div>
+        <div class="single-coach-image-wrap">
+          <div class="single-coach-image" style="background-image: url('hemanth-coach.jpg')"></div>
         </div>
       </div>
-      <div>
-        <div class="contact-info">
-          <div class="contact-item">
-            <div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-            <div class="contact-item-text"><strong>Find Us</strong><span>F895+27W, beside Makrand Sweet Shop,<br/>HUDA Layout, Gopanpalle, Nallagandla,<br/>Hyderabad, Telangana — 500 046</span></div>
+
+    </div>
+  </section>
+
+  <!-- STEP INSIDE / ACADEMY SECTION (SCREENSHOT 5 CLONE) -->
+  <section class="academy-section">
+    <div class="section-inner">
+      <div class="academy-section-grid">
+        
+        <!-- Left Side content -->
+        <div class="academy-left fade-up">
+          <h2 class="section-title-outline">STEP INSIDE OUR <span class="solid">ACADEMY</span></h2>
+          <p class="academy-intro">Experience our modern training facilities designed to nurture talent, improve performance, and give every gymnast the tools to succeed on and off the mat.</p>
+          <div class="academy-big-img"></div>
+        </div>
+
+        <!-- Right Side interactive accordion -->
+        <div class="academy-right fade-up" style="transition-delay: 0.1s">
+          <div class="academy-accordion">
+            
+            <!-- Accordion Item 1 (Active) -->
+            <div class="accordion-item active" data-index="0">
+              <div class="accordion-header" onclick="toggleAccordion(0)">
+                <span class="accordion-title">Certified Coaches</span>
+                <span class="accordion-icon"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></span>
+              </div>
+              <div class="accordion-content">
+                <div class="accordion-content-inner">
+                  <div class="accordion-text-side">
+                    <p>Our trainers are certified professionals with national and state-level competitive training experience.</p>
+                    <button class="btn btn-outline-dark" onclick="goToSection('coaches')">Meet Coaches ↗</button>
+                  </div>
+                  <div class="accordion-img-side" style="background-image: url('unnamed-58.jpg')"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Accordion Item 2 -->
+            <div class="accordion-item" data-index="1">
+              <div class="accordion-header" onclick="toggleAccordion(1)">
+                <span class="accordion-title">Professional Apparatus</span>
+                <span class="accordion-icon"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></span>
+              </div>
+              <div class="accordion-content">
+                <div class="accordion-content-inner">
+                  <div class="accordion-text-side">
+                    <p>Olympic-standard balance beams, vault runway systems, uneven bars, full floor exercise setups, and safety pits.</p>
+                    <button class="btn btn-outline-dark" onclick="showPage('about')">Learn More ↗</button>
+                  </div>
+                  <div class="accordion-img-side" style="background-image: url('unnamed-62.jpg')"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Accordion Item 3 -->
+            <div class="accordion-item" data-index="2">
+              <div class="accordion-header" onclick="toggleAccordion(2)">
+                <span class="accordion-title">Proven Safety Standards</span>
+                <span class="accordion-icon"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></span>
+              </div>
+              <div class="accordion-content">
+                <div class="accordion-content-inner">
+                  <div class="accordion-text-side">
+                    <p>Double-spotting safety configurations, soft landing foam zones, and high density safety crash mats.</p>
+                    <button class="btn btn-outline-dark" onclick="goToSection('enroll')">Enroll Now ↗</button>
+                  </div>
+                  <div class="accordion-img-side" style="background-image: url('unnamed-53.jpg')"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Accordion Item 4 -->
+            <div class="accordion-item" data-index="3">
+              <div class="accordion-header" onclick="toggleAccordion(3)">
+                <span class="accordion-title">Community &amp; Growth</span>
+                <span class="accordion-icon"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></span>
+              </div>
+              <div class="accordion-content">
+                <div class="accordion-content-inner">
+                  <div class="accordion-text-side">
+                    <p>Structured goal setting, confidence-boosting exercises, and monthly performance tracking profiles.</p>
+                    <button class="btn btn-outline-dark" onclick="goToSection('enroll')">Read Details ↗</button>
+                  </div>
+                  <div class="accordion-img-side" style="background-image: url('unnamed-56.jpg')"></div>
+                </div>
+              </div>
+            </div>
+
           </div>
-          <div class="contact-item">
-            <div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.64A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
-            <div class="contact-item-text"><strong>Call Us</strong><span>+91 98498 14364<br/>Mon – Sat · 8:00 AM – 7:00 PM</span></div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            <div class="contact-item-text"><strong>Email Us</strong><span>info@hemanthgymnastics.in</span></div>
+          <div class="accordion-footer">
+            <button class="btn btn-accent btn-primary-pill" onclick="goToSection('enroll')">Get in Touch ↗</button>
           </div>
         </div>
-        <div class="map-wrap">
-          <iframe src="https://maps.google.com/maps?q=F895+27W+beside+Makrand+Sweet+Shop+HUDA+Layout+Gopanpalle+Hyderabad+Nallagandla+Telangana+500046&output=embed" width="100%" height="260" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <button class="whatsapp-btn">
-          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Chat on WhatsApp
-        </button>
+
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="logo" style="margin-bottom:4px">
-          <div class="logo-mark">HG</div>
-          <div class="logo-text">
-            <span style="color:white">HEMANTH GYMNASTICS</span>
+  <!-- GALLERY PREVIEW -->
+  <section class="gallery-section">
+    <div class="section-inner">
+      <div class="fade-up" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px">
+        <div>
+          <span class="badge">Visuals</span>
+          <h2 class="section-title-outline" style="margin-top:12px">Inside Our <span class="solid">Academy</span></h2>
+        </div>
+        <button class="btn btn-outline-dark" onclick="showPage('gallery')">View All Photos →</button>
+      </div>
+
+      <div class="gallery-grid fade-up" style="transition-delay:0.1s">
+        <div class="gallery-item" onclick="showPage('gallery')">
+          <div class="gallery-placeholder" style="background:url('unnamed-63.jpg')"></div>
+        </div>
+        <div class="gallery-item" onclick="showPage('gallery')">
+          <div class="gallery-placeholder" style="background:url('unnamed-62.jpg')"></div>
+        </div>
+        <div class="gallery-item" onclick="showPage('gallery')">
+          <div class="gallery-placeholder" style="background:url('unnamed-55.jpg')"></div>
+        </div>
+        <div class="gallery-item" onclick="showPage('gallery')">
+          <div class="gallery-placeholder" style="background:url('unnamed-54.jpg')"></div>
+        </div>
+        <div class="gallery-item" onclick="showPage('gallery')">
+          <div class="gallery-placeholder" style="background:url('unnamed-53.jpg')"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section">
+    <div class="section-inner">
+      <div class="fade-up" style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <span class="badge" style="border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.6)">What Parents Say</span>
+        <h2 class="section-title-outline dark-bg" style="margin-top: 12px">Student <span class="solid">Stories</span></h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <!-- Parent 1 -->
+        <div class="testimonial-card fade-up">
+          <p class="testimonial-quote">"My daughter has been going to this gym for last 6 months and enjoys it. She does 3 days a week. I can see gradual progress of her skills across various gymnastic activities. Hemanth and his team are dedicated and good trainers. This is a good training facility for new to intermediate gymnasts."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">RN</div>
+            <div>
+              <h4 class="testimonial-name">Rajesh Nadipalli</h4>
+              <span class="testimonial-role">Local Guide · Parent</span>
+            </div>
           </div>
         </div>
-        <p>Professional gymnastics training for all ages in Nallagandla, Hyderabad. Nurturing champions, one flip at a time.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Classes</h4>
-        <a onclick="goToSection('classes')">Tiny Tots (3–5)</a>
-        <a onclick="goToSection('classes')">Beginners (6–9)</a>
-        <a onclick="goToSection('classes')">Intermediate (9–13)</a>
-        <a onclick="goToSection('classes')">Advanced (12–17)</a>
-        <a onclick="goToSection('classes')">Adult Fitness (18+)</a>
-      </div>
-      <div class="footer-col">
-        <h4>Academy</h4>
-        <a onclick="showPage('about')">About Us</a>
-        <a onclick="goToSection('coaches')">Our Coaches</a>
-        <a onclick="showPage('gallery')">Gallery</a>
-        <a href="#">Competitions</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <a onclick="goToSection('enroll')">Enroll Now</a>
-        <a onclick="goToSection('enroll')">Free Trial Class</a>
-        <a>+91 98498 14364</a>
-        <a>info@hemanthgymnastics.in</a>
+
+        <!-- Parent 2 -->
+        <div class="testimonial-card fade-up" style="transition-delay: 0.08s">
+          <p class="testimonial-quote">"Hemanth Gymnastics Academy, Gowlidoddi has been extremely supportive in my child’s overall growth and confidence. The coaches are very professional, patient, and genuinely care about each child’s development. What I really appreciate is how they treat all age groups with equal attention and encouragement, making every child feel valued. The training environment is disciplined yet friendly, which helps kids enjoy learning while improving their skills. Highly recommended for parents looking for quality gymnastics training in Hyderabad."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SD</div>
+            <div>
+              <h4 class="testimonial-name">Srinivas Dasari</h4>
+              <span class="testimonial-role">Parent Reviewer</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Parent 3 -->
+        <div class="testimonial-card fade-up" style="transition-delay: 0.16s">
+          <p class="testimonial-quote">"My son has been coming to Hemanth Gymnasatics Centre from last 6 months. The coaches here are professional, supportive and patient. They give focus on each kid. I see a lot of improvement in my son's flexibility. They give good planned workouts in the week. Joining such classes will build good confidence, flexibility and strength to kids. Overall having a good experience with the classes."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AT</div>
+            <div>
+              <h4 class="testimonial-name">Alekhya Thota</h4>
+              <span class="testimonial-role">Parent Reviewer</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2024 HEMANTH GYMNASTICS. All rights reserved.</span>
-      <span>Hyderabad, Telangana</span>
+  </section>
+
+  <!-- ENROLL & CONTACT -->
+  <section class="enroll-section" id="enroll">
+    <div class="section-inner">
+      <div class="fade-up" style="text-align: center; max-width: 600px; margin: 0 auto 40px;">
+        <span class="badge" style="border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.6)">Join Us</span>
+        <h2 class="section-title-outline dark-bg" style="margin-top: 12px">Enroll <span class="solid">Today</span></h2>
+        <p style="color: rgba(255,255,255,0.5); font-size: 15px; margin-top: 16px;">Fill the registration form below and we'll reach out within 24 hours to schedule a free trial class.</p>
+      </div>
+
+      <div class="enroll-grid">
+        <!-- Contact details / map -->
+        <div class="enroll-left fade-up">
+          <div class="enroll-info-list">
+            
+            <div class="enroll-info-item">
+              <div class="enroll-info-icon">
+                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="enroll-info-text">
+                <strong>Find Us</strong>
+                <span>F895+27W, beside Makrand Sweet Shop,<br/>HUDA Layout, Gopanpalle, Nallagandla,<br/>Hyderabad, Telangana — 500 046</span>
+              </div>
+            </div>
+
+            <div class="enroll-info-item">
+              <div class="enroll-info-icon">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.64A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              </div>
+              <div class="enroll-info-text">
+                <strong>Call Us</strong>
+                <span>+91 98498 14364<br/>Mon – Sat · 8:00 AM – 7:00 PM</span>
+              </div>
+            </div>
+
+            <div class="enroll-info-item">
+              <div class="enroll-info-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="enroll-info-text">
+                <strong>Email Us</strong>
+                <span>info@hemanthgymnastics.in</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="enroll-map-wrap">
+            <iframe src="https://maps.google.com/maps?q=F895+27W+beside+Makrand+Sweet+Shop+HUDA+Layout+Gopanpalle+Hyderabad+Nallagandla+Telangana+500046&output=embed" width="100%" height="240" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+
+        <!-- Form Wrap -->
+        <div class="enroll-form-wrap fade-up" style="transition-delay: 0.1s">
+          <h3 class="enroll-form-title">Registration Form</h3>
+          <form onsubmit="event.preventDefault(); alert('Thank you for registering! We will contact you within 24 hours.');">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="Student's full name" required />
+              </div>
+              <div class="form-group">
+                <label>Age</label>
+                <input type="number" placeholder="Age in years" min="3" max="60" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Batch Interested In</label>
+              <select required>
+                <option value="">Select a batch</option>
+                <option>01 — Tiny Tots (Ages 3–5) · Tue/Thu 10–11 AM</option>
+                <option>02 — Beginners (Ages 6–9) · Mon/Wed/Fri 5:30–6:30 PM</option>
+                <option>03 — Intermediate (Ages 9–13) · Mon/Wed/Fri 4–5:30 PM</option>
+                <option>04 — Advanced &amp; Competitive (Ages 12–17) · Mon–Fri 6:30–8 AM</option>
+                <option>05 — Artistic Gymnastics (Ages 10–18) · Tue/Thu/Sat 5–7 PM</option>
+                <option>06 — Adult Fitness (Ages 18+) · Sat/Sun 8–9:30 AM</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Mobile Number</label>
+                <input type="tel" placeholder="+91 XXXXX XXXXX" required />
+              </div>
+              <div class="form-group">
+                <label>Email ID</label>
+                <input type="email" placeholder="your@email.com" required />
+              </div>
+            </div>
+            <button type="submit" class="btn btn-accent" style="width: 100%; margin-top: 10px;">Submit Registration ↗</button>
+          </form>
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
+  </section>
 
 </div><!-- /page-home -->
 
-<!-- ══════════════ GALLERY PHGE ══════════════ -->
+<!-- ══════════════ PAGE: GALLERY ══════════════ -->
 <div id="page-gallery" class="page">
-  <div class="page-header">
-    <div class="page-header-inner">
+  <div class="gallery-page-header">
+    <div class="section-inner">
       <button class="back-btn" onclick="showPage('home')">
         <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
         Back to Home
       </button>
-      <div class="section-label">Photo Gallery</div>
-      <div class="section-title" style="color:var(--text)">Inside Our Academy</div>
-      <p class="section-sub" style="color:var(--mid)">Training sessions, competitions, events and the Hemanth Gymnastics team.</p>
+      <div>
+        <span class="badge">Visuals</span>
+        <h1 class="section-title-outline" style="margin-top: 12px">Photo <span class="solid">Gallery</span></h1>
+        <p style="color: var(--text-muted); font-size: 15px; margin-top: 12px">Training sessions, championships, annual showcases, and daily moments at Hemanth Gymnastics.</p>
+      </div>
     </div>
   </div>
+
   <div class="gallery-page-body">
-    <div class="gallery-page-inner">
+    <div class="section-inner">
       <div class="filter-bar">
         <button class="filter-btn active" onclick="filterGallery(this,'all')">All Photos</button>
         <button class="filter-btn" onclick="filterGallery(this,'training')">Training</button>
@@ -631,6 +2288,7 @@ footer{background:#04080F;color:rgba(255,255,255,0.35);padding:48px 5% 24px;bord
         <button class="filter-btn" onclick="filterGallery(this,'events')">Events</button>
         <button class="filter-btn" onclick="filterGallery(this,'team')">Our Team</button>
       </div>
+
       <div class="gallery-full-grid">
         <div class="g-item" data-cat="training" onclick="openLightbox('Floor Training — Beginners Batch','unnamed-63.jpg')">
           <div class="g-item-inner" style="background-image:url('unnamed-63.jpg')"></div>
@@ -685,77 +2343,109 @@ footer{background:#04080F;color:rgba(255,255,255,0.35);padding:48px 5% 24px;bord
   </div>
 </div><!-- /page-gallery -->
 
-<!-- ══════════════ ABOUT PHGE ══════════════ -->
+<!-- ══════════════ PAGE: ABOUT US ══════════════ -->
 <div id="page-about" class="page">
-  <div class="page-header">
-    <div class="page-header-inner">
-      <button class="back-btn" onclick="showPage('home')">
-        <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-        Back to Home
-      </button>
-    </div>
-  </div>
-  <div style="background:var(--dark);padding:80px 5%">
-    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
+  
+  <div class="about-dark-hero">
+    <div class="about-dark-inner">
       <div>
-        <div class="section-label">About Us</div>
-        <h1 style="color:white;font-size:56px;margin-bottom:24px">Training Champions.<br/><em>Flip Higher.</em></h1>
-        <p style="color:#888;font-size:16px;font-family:'Inter',sans-serif;font-weight:400;line-height:1.8;max-width:460px">Hemanth Gymnastics has grown into one of Hyderabad's most respected gymnastics training centres. We believe every child deserves world-class coaching — regardless of where they start.</p>
+        <button class="back-btn" onclick="showPage('home')" style="color: rgba(255,255,255,0.6)">
+          <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back to Home
+        </button>
+        <span class="badge" style="border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.6); margin-top: 16px; display: inline-flex">Academy Profiles</span>
+        <h1 class="section-title-outline dark-bg" style="font-size: 52px; margin-top: 16px; margin-bottom: 24px">Training Champions.<br/><span class="solid">Flip Higher.</span></h1>
+        <p style="color: rgba(255, 255, 255, 0.6); font-size: 16px; line-height: 1.7; max-width: 480px">Hemanth Gymnastics has grown into one of Hyderabad's most respected gymnastics training centres. We believe every child deserves world-class coaching — regardless of where they start.</p>
       </div>
-      <div style="border:1px solid rgba(255,255,255,0.08)">
-        <div style="padding:28px 32px;border-bottom:1px solid rgba(255,255,255,0.08)">
-          <div style="font-family:'Barlow',sans-serif;font-weight:800;font-size:42px;color:white;line-height:1">200+</div>
-          <div style="font-size:12px;font-family:'Inter',sans-serif;font-weight:600;color:#555;text-transform:uppercase;letter-spacing:1.5px;margin-top:6px">Active Students</div>
+      <div class="about-stats-panel">
+        <div class="about-stat-row">
+          <div class="about-stat-num">200+</div>
+          <div class="about-stat-label">Active Students</div>
         </div>
-        <div style="padding:28px 32px;border-bottom:1px solid rgba(255,255,255,0.08)">
-          <div style="font-family:'Barlow',sans-serif;font-weight:800;font-size:42px;color:white;line-height:1">12+</div>
-          <div style="font-size:12px;font-family:'Inter',sans-serif;font-weight:600;color:#555;text-transform:uppercase;letter-spacing:1.5px;margin-top:6px">State Medals Won</div>
+        <div class="about-stat-row">
+          <div class="about-stat-num">12+</div>
+          <div class="about-stat-label">State Medals Won</div>
         </div>
-        <div style="padding:28px 32px">
-          <div style="font-family:'Barlow',sans-serif;font-weight:800;font-size:42px;color:white;line-height:1">8</div>
-          <div style="font-size:12px;font-family:'Inter',sans-serif;font-weight:600;color:#555;text-transform:uppercase;letter-spacing:1.5px;margin-top:6px">Certified Coaches</div>
+        <div class="about-stat-row">
+          <div class="about-stat-num">8</div>
+          <div class="about-stat-label">Certified Coaches</div>
         </div>
       </div>
     </div>
   </div>
-  <div style="padding:80px 5%;background:var(--white)">
-    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px">
+
+  <div class="about-page-body">
+    <div class="about-detail-grid">
       <div>
-        <div class="section-label">Our Philosophy</div>
-        <div class="section-title">More Than Just Gymnastics</div>
-        <p style="font-size:16px;font-family:'Inter',sans-serif;font-weight:400;color:var(--mid);line-height:1.8;margin-bottom:20px;margin-top:16px">We train the whole athlete — body, mind and character. Every child who joins Apex leaves stronger, more confident and more disciplined, whether or not they ever compete.</p>
-        <p style="font-size:16px;font-family:'Inter',sans-serif;font-weight:400;color:var(--mid);line-height:1.8">Our facility has a full floor exercise area, balance beams, uneven bars, vault runway, and a foam pit for safe skill development.</p>
+        <span class="badge">Our Philosophy</span>
+        <h2 class="about-philosophy-lead">More Than Just Gymnastics — Fostering Character, Health &amp; Athleticism</h2>
+        <p class="about-philosophy-desc" style="margin-bottom: 20px">We train the whole athlete — body, mind, and character. Every child who joins Hemanth Gymnastics leaves stronger, more confident, and more disciplined, whether or not they ever compete at state levels.</p>
+        <p class="about-philosophy-desc">Our facility features full safety-landing foam pits, Olympic-regulation balance beams, uneven parallel bars, a full runway, and multiple spotting rigs to ensure absolute safety at all skill levels.</p>
       </div>
-      <div style="border:1px solid var(--border)">
-        <div style="padding:24px 28px;border-bottom:1px solid var(--border)">
-          <div style="font-family:'Barlow',sans-serif;font-weight:800;font-size:16px;color:var(--dark);margin-bottom:6px">Small Batch Sizes</div>
-          <div style="font-size:14px;font-family:'Inter',sans-serif;font-weight:400;color:var(--muted);line-height:1.65">Max 10–12 students per batch — every child gets personal attention from the coach.</div>
+      <div class="about-features-list">
+        <div class="about-feature-box">
+          <h3 class="about-feature-title">Small Batch Sizes</h3>
+          <p class="about-feature-text">Max 10–12 students per batch — every child gets personal attention and safe coaching adjustments.</p>
         </div>
-        <div style="padding:24px 28px;border-bottom:1px solid var(--border)">
-          <div style="font-family:'Barlow',sans-serif;font-weight:800;font-size:16px;color:var(--dark);margin-bottom:6px">Safety First</div>
-          <div style="font-size:14px;font-family:'Inter',sans-serif;font-weight:400;color:var(--muted);line-height:1.65">Foam pits, crash mats, and certified spotting techniques at every session.</div>
+        <div class="about-feature-box">
+          <h3 class="about-feature-title">Safety First Setup</h3>
+          <p class="about-feature-text">Soft foam landing pits, double safety spotters, and high-density crash mats configured for daily practice.</p>
         </div>
-        <div style="padding:24px 28px;border-bottom:1px solid var(--border)">
-          <div style="font-family:'Barlow',sans-serif;font-weight:800;font-size:16px;color:var(--dark);margin-bottom:6px">Progress Tracking</div>
-          <div style="font-size:14px;font-family:'Inter',sans-serif;font-weight:400;color:var(--muted);line-height:1.65">Monthly reports and skill assessments so parents see exactly how their child is progressing.</div>
-        </div>
-        <div style="padding:24px 28px">
-          <div style="font-family:'Barlow',sans-serif;font-weight:800;font-size:16px;color:var(--dark);margin-bottom:6px">Competition Pathways</div>
-          <div style="font-size:14px;font-family:'Inter',sans-serif;font-weight:400;color:var(--muted);line-height:1.65">Ready students guided through district, state and national level competitions.</div>
+        <div class="about-feature-box">
+          <h3 class="about-feature-title">Progressive Pathways</h3>
+          <p class="about-feature-text">Structured monthly evaluations and skills assessments to guide dedicated students toward competition tracks.</p>
         </div>
       </div>
     </div>
   </div>
-  <div style="background:var(--bg);padding:32px 5%;border-top:1px solid var(--border)">
-    <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
-      <span style="font-size:14px;font-family:'Inter',sans-serif;color:var(--muted)">Nallagandla, Hyderabad · Affiliated with Gymnastics Federation of India</span>
-      <button class="btn-primary" onclick="goToSection('enroll')">Enroll Now →</button>
-    </div>
-  </div>
+
 </div><!-- /page-about -->
 
-<!-- LIGHTBOX -->
-<!-- CLASS DRAWER -->
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">HG</div>
+          <div class="logo-text">
+            <span style="color: white">Hemanth</span>
+            <span style="color: rgba(255,255,255,0.4)">Gymnastics</span>
+          </div>
+        </div>
+        <p style="margin-top: 16px">Professional gymnastics training for all age groups in Gopanpalle, Nallagandla, Hyderabad. Building champions, one flip at a time.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Programs</h4>
+        <a onclick="goToSection('classes')">Tiny Tots (3-5)</a>
+        <a onclick="goToSection('classes')">Beginners (6-9)</a>
+        <a onclick="goToSection('classes')">Intermediate (9-13)</a>
+        <a onclick="goToSection('classes')">Advanced (12-17)</a>
+        <a onclick="goToSection('classes')">Adult Fitness (18+)</a>
+      </div>
+      <div class="footer-col">
+        <h4>Academy</h4>
+        <a onclick="showPage('about')">About Us</a>
+        <a onclick="goToSection('coaches')">Our Coaches</a>
+        <a onclick="showPage('gallery')">Gallery</a>
+        <a onclick="goToSection('enroll')">Affiliation info</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a onclick="goToSection('enroll')">Enroll Now</a>
+        <a onclick="goToSection('enroll')">Location Map</a>
+        <a>+91 98498 14364</a>
+        <a>info@hemanthgymnastics.in</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Hemanth Gymnastics. All rights reserved.</span>
+      <span>Hyderabad, Telangana</span>
+    </div>
+  </div>
+</footer>
+
+<!-- PROGRAM DRAWER OVERLAYS -->
 <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
 <div class="class-drawer" id="classDrawer">
   <div class="drawer-hero" id="drawerHero">
@@ -766,121 +2456,161 @@ footer{background:#04080F;color:rgba(255,255,255,0.35);padding:48px 5% 24px;bord
     <div class="drawer-num" id="drawerNum"></div>
   </div>
   <div class="drawer-body">
-    <div class="drawer-age-tag" id="drawerAge"></div>
-    <div class="drawer-title" id="drawerTitle"></div>
-    <div class="drawer-desc" id="drawerDesc"></div>
+    <span class="drawer-age-tag" id="drawerAge"></span>
+    <h3 class="drawer-title" id="drawerTitle"></h3>
+    <p class="drawer-desc" id="drawerDesc"></p>
     <div class="drawer-meta">
       <div class="drawer-meta-row">
-        <div class="drawer-meta-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-        <div class="drawer-meta-text"><strong>Schedule</strong><span id="drawerDays"></span></div>
+        <div class="drawer-meta-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="2.5"/><line x1="16" y1="2" x2="16" y2="6" stroke-width="2.5"/><line x1="8" y1="2" x2="8" y2="6" stroke-width="2.5"/><line x1="3" y1="10" x2="21" y2="10" stroke-width="2.5"/></svg>
+        </div>
+        <div class="drawer-meta-text">
+          <strong>Schedule</strong>
+          <span id="drawerDays"></span>
+        </div>
       </div>
       <div class="drawer-meta-row">
-        <div class="drawer-meta-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <div class="drawer-meta-text"><strong>Timing</strong><span id="drawerTime"></span></div>
+        <div class="drawer-meta-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2.5"/><polyline points="12 6 12 12 16 14" stroke-width="2.5"/></svg>
+        </div>
+        <div class="drawer-meta-text">
+          <strong>Timings</strong>
+          <span id="drawerTime"></span>
+        </div>
       </div>
       <div class="drawer-meta-row">
-        <div class="drawer-meta-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-        <div class="drawer-meta-text"><strong>Coach</strong><span id="drawerCoach"></span></div>
+        <div class="drawer-meta-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke-width="2.5"/><circle cx="12" cy="7" r="4" stroke-width="2.5"/></svg>
+        </div>
+        <div class="drawer-meta-text">
+          <strong>Coach Incharge</strong>
+          <span id="drawerCoach"></span>
+        </div>
       </div>
     </div>
-    <div class="drawer-learn-title">What You'll Learn</div>
+    <h4 class="drawer-learn-title">What You'll Learn</h4>
     <ul class="drawer-learn-list" id="drawerLearn"></ul>
-    <button class="drawer-enroll" onclick="closeDrawer();goToSection('enroll')">Enroll in This Batch →</button>
+    <button class="drawer-enroll" onclick="closeDrawer(); goToSection('enroll')">Enroll in This Batch →</button>
   </div>
 </div>
 
+<!-- IMAGE LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
   <div class="lightbox-img" id="lightbox-img" onclick="event.stopPropagation()"></div>
   <div class="lightbox-caption" id="lightbox-caption"></div>
 </div>
 
-<!-- WHATSAPP FLOATING BUTTON -->
+<!-- WHATSAPP FLOATING BADGE -->
 <div class="wa-float">
   <div class="wa-tooltip">Chat with us on WhatsApp</div>
-  <a class="wa-btn"
-     href="https://wa.me/919849814364?text=Hi%20I%20am%20interested%20in%20Hemanth%20Gymnastics"
-     target="_blank"
-     rel="noopener"
-     aria-label="Chat with us on WhatsApp">
+  <a class="wa-btn" href="https://wa.me/919849814364?text=Hi%20I%20am%20interested%20in%20Hemanth%20Gymnastics" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
   </a>
 </div>
 
+<!-- SCRIPTS -->
 <script>
+// SPA Page Router
 function showPage(name, fromPop) {
   document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
-  document.getElementById('page-' + name).classList.add('active');
-  window.scrollTo(0, 0);
+  var pg = document.getElementById('page-' + name);
+  if (pg) {
+    pg.classList.add('active');
+    window.scrollTo(0, 0);
+  }
   if (!fromPop) history.pushState({page: name}, '', '');
+  
+  // Dynamic navigation links adjustment
+  adjustNavTheme(name);
 }
+
 window.addEventListener('popstate', function(e){
   showPage(e.state && e.state.page ? e.state.page : 'home', true);
 });
 
+function adjustNavTheme(pageName) {
+  var navbar = document.getElementById('navbar');
+  // For About/Gallery subpages, navbar sticky colors adjust
+  if (pageName !== 'home') {
+    navbar.style.background = 'var(--dark)';
+  } else {
+    // restore based on scroll position
+    if (window.scrollY > 80) {
+      navbar.style.background = 'rgba(10, 13, 20, 0.85)';
+    } else {
+      navbar.style.background = 'transparent';
+    }
+  }
+}
+
+// Section Scroll Router
 function goToSection(id) {
   var home = document.getElementById('page-home');
   if (!home.classList.contains('active')) {
     showPage('home');
     setTimeout(function(){
       var el = document.getElementById(id);
-      if (el) el.scrollIntoView({behavior:'smooth'});
-    }, 120);
+      if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    }, 150);
   } else {
     var el = document.getElementById(id);
-    if (el) el.scrollIntoView({behavior:'smooth'});
+    if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
   }
 }
 
+// Gallery categorization
 function filterGallery(btn, cat) {
-  document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.querySelectorAll('.filter-bar .filter-btn').forEach(function(b){ b.classList.remove('active'); });
   btn.classList.add('active');
-  document.querySelectorAll('.g-item').forEach(function(item){
+  document.querySelectorAll('.gallery-full-grid .g-item').forEach(function(item){
     item.style.display = (cat === 'all' || item.dataset.cat === cat) ? '' : 'none';
   });
 }
 
+// Programs drawer metadata content mapper
 var classData = {
   'tiny-tots': {
-    num:'01', title:'Tiny Tots', age:'Ages 3 – 5', img:'Featured-Image-5.jpg',
-    desc:'A playful introduction to gymnastics for the youngest learners. Every session is designed to build confidence, improve coordination and make movement joyful through games and structured play.',
+    num:'01', title:'Tiny Tots Program', age:'Ages 3 – 5', img:'Featured-Image-5.jpg',
+    desc:'A playful introduction to gymnastics for the youngest learners. Designed to build core confidence, coordination and movement capability through structured games.',
     days:'Tuesday & Thursday', time:'10:00 AM – 11:00 AM', coach:'Priya Sharma',
-    learn:['Basic balance and body coordination','Fun tumbling and rolling movements','Listening and following instructions','Flexibility and spatial awareness','Building confidence through play']
+    learn:['Basic balance & coordination','Fun tumbling and rolls','Listening and following coach guidance','Flexibility games','Building confidence through group play']
   },
   'beginners': {
-    num:'02', title:'Beginners', age:'Ages 6 – 9', img:'images.jpeg',
-    desc:'A structured foundation batch for children new to gymnastics. Students learn correct technique, safe falling, and build strength through progressive drills in a supportive group environment.',
+    num:'02', title:'Beginners Program', age:'Ages 6 – 9', img:'images.jpeg',
+    desc:'A progressive foundation course for school-age children new to gymnastics. Students master safe landing technique, balance, and basic skills.',
     days:'Monday, Wednesday & Friday', time:'5:30 PM – 6:30 PM', coach:'Rahul Mehta',
-    learn:['Forward and backward rolls','Cartwheels and round-offs','Handstand progressions','Basic uneven bar work','Safe landing and falling technique']
+    learn:['Forward & backward rolls','Cartwheel & handstand guides','Basic bar swings and grips','Balance beam walking','Safe landing drills']
   },
   'intermediate': {
-    num:'03', title:'Intermediate', age:'Ages 9 – 13', img:'gymnast-pose.jpg',
-    desc:'For students who have mastered the basics and are ready to progress to more dynamic skills. This batch covers advanced tumbling, apparatus work and the beginnings of routine building.',
+    num:'03', title:'Intermediate Batch', age:'Ages 9 – 13', img:'gymnast-pose.jpg',
+    desc:'For students who have mastered basic cartwheels and balance postures. Focus moves onto routine combinations, vaults, and higher apparatus moves.',
     days:'Monday, Wednesday & Friday', time:'4:00 PM – 5:30 PM', coach:'Ananya Verma',
-    learn:['Back walkovers and aerials','Round-off back handsprings','Balance beam routines','Uneven bars — swings and releases','Floor exercise choreography']
+    learn:['Back walkovers and round-offs','Intro to handspring combinations','Balance beam routines','Swings and releases on bars','Choreographed floor sets']
   },
   'advanced': {
     num:'04', title:'Advanced & Competitive', age:'Ages 12 – 17', img:'Safe-Gymnastics-Training.jpg',
-    desc:'Intensive training for students targeting district, state and national-level competitions. Focus is on perfecting full routines, peak physical conditioning and competition mindset.',
+    desc:'Dedicated competitive batch. Features physical conditioning, peak performance routines, video analysis, and target preparation for district & state championships.',
     days:'Monday to Friday', time:'6:30 AM – 8:00 AM', coach:'Kiran Joshi',
-    learn:['Full competition-level routines','Strength and conditioning drills','Deduction analysis and corrections','Competition strategy and mental prep','Video review and performance feedback']
+    learn:['Competition routines prep','Elite tumbling combinations','Vault and landing perfection','Strength & high impact conditioning','Competition rules and focus analysis']
   },
   'artistic': {
     num:'05', title:'Artistic Gymnastics', age:'Ages 10 – 18', img:'images-3.jpeg',
-    desc:'A specialised programme covering all four women\'s artistic events — vault, uneven bars, balance beam and floor. Ideal for students with ambitions to compete at state and national level.',
+    desc:'Specialized apparatus routines batch covering all core artistic events: uneven bars, vault runway, balance beam, and floor exercise choreography.',
     days:'Tuesday, Thursday & Saturday', time:'5:00 PM – 7:00 PM', coach:'Deepa Nair',
-    learn:['Vault approach and block technique','Uneven bar giants and releases','Balance beam acrobatics and dance','Floor exercise with music','Event-specific strength training']
+    learn:['Event-specific technique mastery','Swings, giants and release drills','Beam dance and balance tricks','Vault blocks and jumps','Choreographed musical routines']
   },
   'adult': {
-    num:'06', title:'Adult Fitness Gymnastics', age:'Ages 18+', img:'images-2.jpeg',
-    desc:'Designed for adults who want to improve flexibility, build core strength and experience the joy of gymnastics without any prior background. All fitness levels welcome.',
+    num:'06', title:'Adult Fitness Batch', age:'Ages 18+', img:'images-2.jpeg',
+    desc:'Tailored fitness routine leveraging gymnastics workouts. Aims to build core power, flexibility, upper body coordination, and stamina in adults.',
     days:'Saturday & Sunday', time:'8:00 AM – 9:30 AM', coach:'Priya Sharma',
-    learn:['Core and upper body strength','Full-body flexibility and stretching','Basic gymnastics movement patterns','Handstand and cartwheel progressions','Stress relief through movement']
+    learn:['Core conditioning circuits','Active and passive flexibility drills','Handstand and coordination basics','Upper body strength moves','Stress relief through physical play']
   }
 };
 
+// Drawer Controls
 function openDrawer(id) {
   var d = classData[id];
   if (!d) return;
@@ -892,9 +2622,15 @@ function openDrawer(id) {
   document.getElementById('drawerDays').textContent = d.days;
   document.getElementById('drawerTime').textContent = d.time;
   document.getElementById('drawerCoach').textContent = d.coach;
+  
   var list = document.getElementById('drawerLearn');
   list.innerHTML = '';
-  d.learn.forEach(function(item){ var li = document.createElement('li'); li.textContent = item; list.appendChild(li); });
+  d.learn.forEach(function(item){
+    var li = document.createElement('li');
+    li.textContent = item;
+    list.appendChild(li);
+  });
+  
   document.getElementById('drawerOverlay').classList.add('open');
   document.getElementById('classDrawer').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -906,6 +2642,7 @@ function closeDrawer() {
   document.body.style.overflow = '';
 }
 
+// Lightbox Controls
 function openLightbox(caption, imgSrc) {
   document.getElementById('lightbox-caption').textContent = caption;
   document.getElementById('lightbox-img').style.backgroundImage = "url('" + imgSrc + "')";
@@ -918,10 +2655,50 @@ function closeLightbox() {
   document.body.style.overflow = '';
 }
 
+// Interactive Accordion (Step Inside Section)
+function toggleAccordion(index) {
+  var items = document.querySelectorAll('.academy-accordion .accordion-item');
+  items.forEach(function(item, idx) {
+    if (idx === index) {
+      item.classList.add('active');
+    } else {
+      item.classList.remove('active');
+    }
+  });
+}
+
+// Esc Key Listener
 document.addEventListener('keydown', function(e){
-  if (e.key === 'Escape') { closeLightbox(); closeDrawer(); }
+  if (e.key === 'Escape') {
+    closeLightbox();
+    closeDrawer();
+  }
 });
 
+// Scroll Detection for Navigation pill morphing
+var navbar = document.getElementById('navbar');
+window.addEventListener('scroll', function(){
+  var activePage = 'home';
+  document.querySelectorAll('.page').forEach(function(p){
+    if (p.classList.contains('active')) {
+      activePage = p.id.replace('page-', '');
+    }
+  });
+  
+  if (window.scrollY > 80) {
+    navbar.classList.add('scrolled');
+    if (activePage === 'home') {
+      navbar.style.background = 'rgba(10, 13, 20, 0.85)';
+    }
+  } else {
+    navbar.classList.remove('scrolled');
+    if (activePage === 'home') {
+      navbar.style.background = 'transparent';
+    }
+  }
+}, {passive:true});
+
+// Intersection Observer for scroll entrance animations
 var observer = new IntersectionObserver(function(entries){
   entries.forEach(function(entry){
     if(entry.isIntersecting){
@@ -929,13 +2706,11 @@ var observer = new IntersectionObserver(function(entries){
       observer.unobserve(entry.target);
     }
   });
-}, {threshold:0.12});
-document.querySelectorAll('.fade-up').forEach(function(el){ observer.observe(el); });
+}, {threshold:0.1});
 
-var nav = document.querySelector('nav');
-window.addEventListener('scroll', function(){
-  nav.classList.toggle('scrolled', window.scrollY > 80);
-}, {passive:true});
+document.querySelectorAll('.fade-up').forEach(function(el){
+  observer.observe(el);
+});
 </script>
 </body>
 </html>
