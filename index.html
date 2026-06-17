@@ -5,22 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>HEMANTH GYMNASTICS — Train. Flip. Succeed.</title>
 <meta name="description" content="Professional gymnastics training in Nallagandla, Hyderabad. Structured batches for all ages — tiny tots, beginners, intermediates, and competitive athletes." />
-<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 /* CSS RESET & VARIABLES */
 *{margin:0;padding:0;box-sizing:border-box}
 :root {
-  --primary: #E0456A;
-  --primary-hover: #C73A5E;
-  --primary-light: rgba(224, 69, 106, 0.08);
-  --primary-border: rgba(224, 69, 106, 0.2);
-  --dark: #0A0D14;
-  --dark-light: #111827;
-  --light: #F8F9FA;
+  --primary: #FF7A45; /* Athletic Coral Orange */
+  --primary-hover: #E05E2E;
+  --primary-light: rgba(255, 122, 69, 0.08);
+  --dark: #000000;
+  --dark-light: #161A22;
+  --light: #F4F4F4; /* Light warm gray */
   --text: #0E1118;
-  --text-muted: #5E6980;
+  --text-muted: #626A7E;
   --white: #FFFFFF;
-  --border: #E2E8F0;
+  --border: #E8E8E8;
   --border-light: rgba(255, 255, 255, 0.08);
 }
 body {
@@ -72,7 +71,7 @@ img {
   padding: 14px 28px;
   font-size: 14px;
   font-family: 'Inter', sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.02em;
   border-radius: 100px;
   cursor: pointer;
@@ -104,7 +103,7 @@ img {
 .btn-accent:hover {
   background: var(--primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(224, 69, 106, 0.25);
+  box-shadow: 0 10px 24px rgba(255, 122, 69, 0.25);
 }
 .btn-outline-dark {
   background: transparent;
@@ -127,7 +126,7 @@ img {
   color: var(--text-muted);
   font-size: 11px;
   font-family: 'Inter', sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: 6px 16px;
@@ -143,837 +142,1062 @@ section {
   max-width: 1200px;
   margin: 0 auto;
 }
-.section-title-outline {
-  font-family: 'Barlow', sans-serif;
-  font-size: clamp(2.2rem, 5vw, 4rem);
-  font-weight: 900;
-  text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: -0.01em;
-  -webkit-text-stroke: 1.5px var(--text);
-  color: transparent;
-}
-.section-title-outline .solid {
-  color: var(--text);
-  -webkit-text-stroke: 0;
-}
-.section-title-outline.dark-bg {
-  -webkit-text-stroke: 1.5px var(--white);
-}
-.section-title-outline.dark-bg .solid {
-  color: var(--white);
-  -webkit-text-stroke: 0;
-}
 
-/* NAV */
-nav {
+/* NAVIGATION HEADER (SPLIT CAPSULES CLONE) */
+header {
   position: fixed;
-  top: 0;
+  top: 24px;
   left: 0;
   right: 0;
-  height: 80px;
   z-index: 1000;
-  background: transparent;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 0 5%;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  justify-content: center;
+  padding: 0 4%;
+  pointer-events: none;
 }
-nav.scrolled {
-  background: rgba(10, 13, 20, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  height: 72px;
-  top: 16px;
-  left: 5%;
-  right: 5%;
-  border-radius: 100px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-}
-.nav-inner {
+.nav-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
+  width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  pointer-events: auto;
 }
-.logo {
+.nav-group {
   display: flex;
   align-items: center;
-  gap: 12px;
-  cursor: pointer;
+  gap: 8px;
 }
-.logo-icon {
-  width: 38px;
-  height: 38px;
-  background: var(--primary);
+.nav-pill {
+  background: var(--white);
+  border-radius: 100px;
+  padding: 10px 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.02);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  height: 48px;
+}
+.nav-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+.nav-pill.logo-pill {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  padding-left: 12px;
+}
+.logo-symbol {
+  width: 28px;
+  height: 28px;
+  background: var(--dark);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Barlow', sans-serif;
-  font-weight: 900;
-  font-size: 16px;
   color: var(--white);
-  box-shadow: 0 4px 12px rgba(224, 69, 106, 0.3);
-}
-.logo-text {
-  font-family: 'Barlow', sans-serif;
+  font-size: 11px;
   font-weight: 900;
-  font-size: 18px;
-  letter-spacing: 0.02em;
+}
+.nav-pill.dark-pill {
+  background: var(--dark);
   color: var(--white);
-  text-transform: uppercase;
-  line-height: 1.1;
-  display: flex;
-  flex-direction: column;
+  border-color: var(--dark);
 }
-.logo-text span:last-child {
-  font-size: 10px;
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.5);
-  letter-spacing: 0.15em;
-  margin-top: 1px;
+.nav-pill.orange-pill {
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
 }
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 36px;
+.nav-pill.orange-pill:hover {
+  box-shadow: 0 10px 24px rgba(255, 122, 69, 0.3);
 }
-.nav-links a {
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.75);
-  letter-spacing: 0.02em;
-  transition: color 0.3s;
+.nav-pill.circle-pill {
+  width: 48px;
+  padding: 0;
+  justify-content: center;
 }
-.nav-links a:hover {
-  color: var(--primary);
-}
-.nav-cta {
-  padding: 10px 22px;
-  font-size: 13px;
+.nav-pill svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  fill: none;
 }
 
-/* HERO */
-.hero {
-  position: relative;
-  min-height: 100vh;
+/* OVERLAY MENU */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 13, 20, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 28px;
+}
+.menu-overlay.open {
+  display: flex;
+}
+.menu-overlay-close {
+  position: absolute;
+  top: 32px;
+  right: 4%;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--white);
+  border: none;
+  cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+.menu-overlay-close svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--text);
+  stroke-width: 2.5;
+  fill: none;
+}
+.menu-overlay-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+.menu-overlay-links a {
+  font-family: 'Outfit', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  transition: color 0.3s;
+}
+.menu-overlay-links a:hover {
+  color: var(--primary);
+}
+
+/* HERO (ROUNDED CAPSULE CONTAINER CLONE) */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 720px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background: url('kids-medals.png') center/cover no-repeat;
-  padding: 120px 5% 80px;
+  border-radius: 0 0 48px 48px;
+  margin: 0 12px;
+  overflow: hidden;
+  padding: 100px 4% 80px;
 }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(10, 13, 20, 0.9) 0%, rgba(10, 13, 20, 0.7) 50%, rgba(10, 13, 20, 0.3) 100%),
-              linear-gradient(to top, rgba(10, 13, 20, 0.95) 0%, transparent 40%);
+  background: rgba(0, 0, 0, 0.45);
   z-index: 1;
 }
-.hero-inner {
+.hero-content {
   position: relative;
   z-index: 2;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 40px;
-  align-items: center;
-}
-.hero-content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 28px;
-}
-.hero-badge {
-  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(224, 69, 106, 0.12);
-  border: 1px solid rgba(224, 69, 106, 0.25);
-  color: var(--primary);
-  font-size: 11px;
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 6px 16px;
-  border-radius: 100px;
-}
-.hero-badge span {
-  width: 6px;
-  height: 6px;
-  background: var(--primary);
-  border-radius: 50%;
-  animation: pulse 2s infinite;
-}
-@keyframes pulse {
-  0% { transform: scale(0.9); opacity: 0.6; }
-  50% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(0.9); opacity: 0.6; }
+  text-align: center;
+  gap: 24px;
+  max-width: 1000px;
 }
 .hero-title {
-  font-family: 'Barlow', sans-serif;
-  font-size: clamp(3.2rem, 8vw, 6.2rem);
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.4rem, 6.5vw, 4.6rem);
   font-weight: 900;
-  line-height: 0.9;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
+  line-height: 1.1;
   color: var(--white);
+  max-width: 900px;
+  letter-spacing: -0.03em;
 }
-.hero-title em {
-  font-style: normal;
-  color: var(--primary);
+.hero-subtitle {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 580px;
+  line-height: 1.6;
 }
-.hero-desc {
-  font-size: clamp(1rem, 1.8vw, 1.15rem);
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.65;
-  max-width: 500px;
-}
-.hero-btns {
-  display: flex;
+.hero-cta-btn {
+  background: var(--white);
+  color: var(--text);
+  padding: 10px 10px 10px 24px;
+  border-radius: 100px;
+  display: inline-flex;
   align-items: center;
   gap: 16px;
-}
-
-/* ABOUT SECTION (SCREENSHOT 2 CLONE) */
-.about-section {
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
-}
-.about-quote-row {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  padding-bottom: 60px;
-  border-bottom: 1px solid var(--border);
-}
-.about-quote-img {
-  width: 140px;
-  height: 96px;
-  border-radius: 12px;
-  background: url('images.jpeg') center/cover no-repeat;
-  flex-shrink: 0;
-}
-.about-quote {
-  font-size: clamp(1.2rem, 2.5vw, 1.75rem);
-  font-weight: 500;
-  line-height: 1.4;
-  color: var(--text);
-}
-.about-quote .highlight {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: var(--primary);
-}
-.about-quote .light-highlight {
-  color: var(--text-muted);
-}
-.about-asymmetric-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  gap: 48px;
-  padding-top: 80px;
-  align-items: flex-start;
-}
-.about-col-left {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
-}
-.about-lead {
-  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
-  font-weight: 600;
-  line-height: 1.35;
-  color: var(--text);
-}
-.about-col-center .about-img-portrait {
-  aspect-ratio: 3/4;
-  border-radius: 16px;
-  background: url('gymnast-pose.jpg') center/cover no-repeat;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-}
-.about-col-right {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-.about-desc {
-  font-size: 15px;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-.about-img-landscape {
-  aspect-ratio: 4/3;
-  border-radius: 16px;
-  background: url('unnamed-58.jpg') center/cover no-repeat;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-}
-
-/* PROGRAMS SECTION (SCREENSHOT 3 CLONE) */
-.programs-section {
-  background: var(--light);
-}
-.programs-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 60px;
-  gap: 40px;
-}
-.programs-header-desc {
-  max-width: 440px;
-  font-size: 15px;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-.programs-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-.program-card {
-  position: relative;
-  aspect-ratio: 4/3;
-  border-radius: 16px;
-  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  border: none;
 }
-.program-card-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+.hero-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
 }
-.program-card:hover .program-card-bg {
-  transform: scale(1.08);
-}
-.program-card-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(10, 13, 20, 0.85) 0%, rgba(10, 13, 20, 0.2) 60%, transparent 100%);
-}
-.program-card-content {
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
-  right: 24px;
-  z-index: 2;
-}
-.program-card-title {
-  font-family: 'Barlow', sans-serif;
-  font-size: 22px;
-  font-weight: 800;
-  color: var(--white);
-  margin-bottom: 4px;
-  text-transform: uppercase;
-}
-.program-card-age {
-  font-size: 12px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.75);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-.program-card-btn {
-  position: absolute;
-  bottom: 24px;
-  right: 24px;
-  width: 44px;
-  height: 44px;
+.hero-cta-arrow {
+  width: 36px;
+  height: 36px;
+  background: var(--dark);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  z-index: 2;
-  transition: all 0.3s;
 }
-.program-card-btn svg {
-  width: 18px;
-  height: 18px;
+.hero-cta-arrow svg {
+  width: 14px;
+  height: 14px;
   stroke: var(--white);
   stroke-width: 2.5;
   fill: none;
   transition: transform 0.3s;
 }
-.program-card:hover .program-card-btn {
-  background: var(--primary);
-  border-color: var(--primary);
-}
-.program-card:hover .program-card-btn svg {
-  transform: rotate(-45deg);
+.hero-cta-btn:hover .hero-cta-arrow svg {
+  transform: rotate(45deg);
 }
 
-/* COACHES SECTION (SCREENSHOT 4 CLONE) */
-.coaches-section {
+/* Hero bottom widgets */
+.hero-bottom-left {
+  position: absolute;
+  bottom: 32px;
+  left: 32px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 100px;
+  padding: 8px 10px 8px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  font-size: 13px;
+  font-weight: 700;
+}
+.app-icons-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.app-icon-circle {
+  width: 30px;
+  height: 30px;
+  background: var(--dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+}
+.app-icon-circle.download-btn {
+  background: var(--primary);
+}
+.app-icon-circle svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+.hero-bottom-right {
+  position: absolute;
+  bottom: 32px;
+  right: 32px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 100px;
+  padding: 8px 24px 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+}
+.satisfied-avatars {
+  display: flex;
+  align-items: center;
+}
+.satisfied-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  margin-right: -8px;
+  background-size: cover;
+  background-position: center;
+}
+.satisfied-avatar:last-child {
+  margin-right: 0;
+}
+.satisfied-text {
+  font-size: 11px;
+  font-weight: 800;
+  font-family: 'Outfit', sans-serif;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* SECTION 2: INTRO / ASYMMETRICAL CARDS (SCREENSHOT 2 CLONE) */
+.welcome-section {
   background: var(--white);
+  border-bottom: 1px solid var(--border);
 }
-.coaches-section-header {
+.welcome-grid {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  align-items: flex-end;
-  margin-bottom: 60px;
-  gap: 40px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 48px;
+  align-items: stretch;
 }
-.coaches-header-left {
+.welcome-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 16px 0;
+}
+.welcome-left-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+.welcome-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.welcome-card-portrait {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+  aspect-ratio: 3/4;
+}
+.welcome-card-bg {
+  position: absolute;
+  inset: 0;
+  background: url('Featured-Image-5.jpg') center/cover no-repeat;
+  transition: transform 0.6s ease;
+}
+.welcome-card-portrait:hover .welcome-card-bg {
+  transform: scale(1.05);
+}
+.welcome-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+}
+.welcome-card-tag {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--white);
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 2;
+}
+.welcome-card-content {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  z-index: 2;
+}
+.welcome-card-text {
+  font-family: 'Outfit', sans-serif;
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.welcome-card-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.3s;
+  border: none;
+}
+.welcome-card-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--text);
+  stroke-width: 2.5;
+  fill: none;
+  transition: transform 0.3s;
+}
+.welcome-card-portrait:hover .welcome-card-btn {
+  background: var(--primary);
+}
+.welcome-card-portrait:hover .welcome-card-btn svg {
+  stroke: var(--white);
+  transform: rotate(45deg);
+}
+
+.welcome-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px 0;
+  gap: 24px;
+}
+.welcome-card-landscape {
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 16/10;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+.welcome-landscape-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.5s ease-in-out;
+}
+.welcome-right-desc-box {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
 }
-.coaches-header-subtitle {
-  font-size: 15px;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-.coaches-header-title {
-  font-family: 'Barlow', sans-serif;
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 900;
-  line-height: 0.95;
-  text-transform: uppercase;
-  color: var(--text);
-}
-.coaches-header-title .grey {
-  color: var(--text-muted);
-  font-weight: 500;
-  -webkit-text-stroke: 1.5px var(--border);
-  color: transparent;
-}
-/* SINGLE COACH PROFILE */
-.single-coach-layout {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 60px;
-  align-items: center;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.02);
-  margin-top: 40px;
-}
-.single-coach-content {
-  padding: 60px 48px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-}
-.single-coach-name {
-  font-family: 'Barlow', sans-serif;
-  font-size: clamp(2.2rem, 4vw, 3.5rem);
-  font-weight: 900;
-  text-transform: uppercase;
-  color: var(--text);
-  line-height: 1;
-}
-.single-coach-exp {
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--primary);
-  letter-spacing: 0.05em;
-}
-.single-coach-desc {
-  font-size: 15px;
-  color: var(--text-muted);
-  line-height: 1.7;
-}
-.single-coach-achievements {
-  display: flex;
-  gap: 32px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  width: 100%;
-}
-.coach-achieve-item strong {
-  display: block;
-  font-family: 'Barlow', sans-serif;
-  font-weight: 800;
-  font-size: 24px;
-  color: var(--text);
-}
-.coach-achieve-item span {
-  font-size: 11px;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  margin-top: 4px;
-  display: block;
-}
-.single-coach-image-wrap {
-  height: 100%;
-  min-height: 440px;
-}
-.single-coach-image {
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  min-height: 440px;
-}
-
-@media (max-width: 768px) {
-  .single-coach-layout {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-  .single-coach-content {
-    padding: 32px 24px;
-  }
-  .single-coach-image-wrap {
-    height: 320px;
-    min-height: auto;
-  }
-  .single-coach-image {
-    min-height: 320px;
-  }
-}
-
-.coaches-new-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-.coach-new-card {
-  background: var(--white);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.03);
-  border: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.coach-new-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
-}
-.coach-new-photo-wrap {
-  height: 260px;
-  background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.coach-new-initials {
-  font-family: 'Barlow', sans-serif;
-  font-size: 72px;
-  font-weight: 900;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 0%, transparent 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.coach-new-role-tag {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(10, 13, 20, 0.75);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 10px 16px;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--white);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-.coach-new-meta {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  background: var(--white);
-  flex-grow: 1;
-}
-.coach-new-name {
-  font-family: 'Barlow', sans-serif;
+.welcome-right-title {
+  font-family: 'Outfit', sans-serif;
   font-size: 18px;
   font-weight: 800;
   color: var(--text);
   text-transform: uppercase;
-}
-.coach-new-experience {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--primary);
-  text-transform: uppercase;
   letter-spacing: 0.05em;
 }
-.coach-new-card.highlight {
-  background: var(--primary);
-  border: none;
-  color: var(--white);
-}
-.coach-highlight-inner {
-  padding: 40px 32px;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
-  gap: 16px;
-}
-.coach-highlight-tag {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
-}
-.coach-highlight-title {
-  font-family: 'Barlow', sans-serif;
-  font-size: 24px;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-.coach-highlight-desc {
+.welcome-right-text {
   font-size: 14px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-/* ACADEMY SECTION (SCREENSHOT 5 CLONE) */
-.academy-section {
-  background: var(--light);
-}
-.academy-section-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 64px;
-  align-items: flex-start;
-}
-.academy-left {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-}
-.academy-intro {
-  font-size: 16px;
   color: var(--text-muted);
   line-height: 1.6;
 }
-.academy-big-img {
-  aspect-ratio: 16/10;
-  border-radius: 20px;
-  background: url('Safe-Gymnastics-Training.jpg') center/cover no-repeat;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-}
-.academy-right {
+.welcome-nav-btns {
   display: flex;
-  flex-direction: column;
-  gap: 36px;
+  gap: 12px;
 }
-.academy-accordion {
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid var(--border);
-}
-.accordion-item {
-  border-bottom: 1px solid var(--border);
-  overflow: hidden;
-}
-.accordion-header {
-  padding: 24px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-}
-.accordion-title {
-  font-family: 'Barlow', sans-serif;
-  font-size: 19px;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: var(--text);
-  letter-spacing: 0.02em;
-  transition: color 0.3s;
-}
-.accordion-header:hover .accordion-title {
-  color: var(--primary);
-}
-.accordion-icon {
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.accordion-icon svg {
-  width: 16px;
-  height: 16px;
-  stroke: var(--text);
-  stroke-width: 2.5;
-  fill: none;
-}
-.accordion-item.active .accordion-icon {
-  transform: rotate(180deg);
-}
-.accordion-item.active .accordion-icon svg {
-  stroke: var(--primary);
-}
-.accordion-item.active .accordion-title {
-  color: var(--primary);
-}
-.accordion-content {
-  max-height: 0;
-  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.accordion-item.active .accordion-content {
-  max-height: 190px;
-}
-.accordion-content-inner {
-  padding-bottom: 24px;
-  display: flex;
-  gap: 28px;
-  align-items: center;
-}
-.accordion-text-side {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-}
-.accordion-text-side p {
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--text-muted);
-}
-.accordion-img-side {
-  width: 130px;
-  height: 100px;
-  border-radius: 12px;
-  background-size: cover;
-  background-position: center;
-  flex-shrink: 0;
-}
-.accordion-footer {
-  display: flex;
-  justify-content: flex-start;
-}
-
-/* TESTIMONIALS SECTION */
-.testimonials-section {
-  background: var(--dark);
-  color: var(--white);
-}
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  margin-top: 60px;
-}
-.testimonial-card {
-  background: var(--dark-light);
-  border: 1px solid var(--border-light);
-  padding: 40px;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.testimonial-quote {
-  font-size: 15px;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 32px;
-}
-.testimonial-author {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.testimonial-avatar {
+.welcome-nav-btn {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: var(--primary);
+  border: 1px solid var(--border);
+  background: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Barlow', sans-serif;
-  font-weight: 800;
-  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.welcome-nav-btn.dark-btn {
+  background: var(--dark);
+  border-color: var(--dark);
   color: var(--white);
 }
-.testimonial-name {
-  font-family: 'Barlow', sans-serif;
-  font-size: 16px;
+.welcome-nav-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  fill: none;
+}
+.welcome-nav-btn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+}
+
+/* SECTION 3: MEET OUR PRO TRAINERS (STAGGERED HEIGHTS CLONE) */
+.trainers-section {
+  background: var(--light);
+}
+.trainers-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.trainers-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 800;
-  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1.1;
 }
-.testimonial-role {
-  font-size: 12px;
-  color: var(--primary);
-  font-weight: 600;
+.trainers-subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.65;
 }
-
-/* GALLERY PREVIEW IN HOME */
-.gallery-section {
-  background: var(--white);
+.trainers-filter-bar {
+  display: inline-flex;
+  background: rgba(0, 0, 0, 0.04);
+  padding: 6px;
+  border-radius: 100px;
+  margin-bottom: 56px;
 }
-.gallery-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  grid-template-rows: 240px 240px;
-  gap: 12px;
-  margin-top: 48px;
-}
-.gallery-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 16px;
+.trainers-filter-btn {
+  padding: 10px 24px;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-muted);
+  border-radius: 100px;
+  border: none;
+  background: transparent;
   cursor: pointer;
+  transition: all 0.3s;
 }
-.gallery-item:first-child {
-  grid-row: 1/3;
-}
-.gallery-placeholder {
-  width: 100%;
-  height: 100%;
-  background-size: cover !important;
-  background-position: center !important;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s;
-}
-.gallery-item:hover .gallery-placeholder {
-  transform: scale(1.05);
-  filter: brightness(0.85);
-}
-
-/* ENROLL SECTION */
-.enroll-section {
+.trainers-filter-btn.active {
   background: var(--dark);
   color: var(--white);
+}
+
+.trainers-masonry {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  align-items: flex-end;
+}
+.trainer-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.trainer-card {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+  width: 100%;
+}
+.trainer-card.height-tall {
+  height: 350px;
+}
+.trainer-card.height-short {
+  height: 290px;
+}
+.trainer-card-photo {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+}
+.trainer-card:hover .trainer-card-photo {
+  transform: scale(1.05);
+}
+.trainer-contact-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.trainer-contact-badge svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+.trainer-meta {
+  text-align: center;
+}
+.trainer-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 2px;
+  text-transform: uppercase;
+}
+.trainer-title-text {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* SECTION 4: PRICES / PLANS (GREEN AND IMAGE CARD CLONE) */
+.prices-section {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+.prices-header {
+  text-align: center;
+  margin-bottom: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+.prices-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2rem, 5.5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--text);
+  max-width: 800px;
+  letter-spacing: -0.02em;
+}
+.prices-title span.emoji {
+  display: inline-block;
+  font-size: 40px;
+  vertical-align: middle;
+}
+.prices-link-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+}
+.prices-link-btn {
+  width: 44px;
+  height: 44px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  transition: transform 0.3s;
+}
+.prices-link-group:hover .prices-link-btn {
+  transform: translateX(4px);
+}
+.prices-link-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  fill: none;
+}
+
+.prices-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.price-card {
+  border-radius: 32px;
+  padding: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 480px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.02);
+  overflow: hidden;
+}
+.price-card.green-card {
+  background: #B4F2C9;
+  color: #064E3B;
+}
+.price-card.image-card {
+  background: url('Safe-Gymnastics-Training.jpg') center/cover no-repeat;
+  color: var(--white);
+}
+.price-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 13, 20, 0.45);
+  z-index: 1;
+}
+.price-card-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+.price-tags {
+  display: flex;
+  gap: 8px;
+}
+.price-tag-pill {
+  border-radius: 100px;
+  padding: 6px 14px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.green-card .price-tag-pill.black {
+  background: var(--dark);
+  color: var(--white);
+}
+.green-card .price-tag-pill.outline {
+  border: 1.5px solid #064E3B;
+  color: #064E3B;
+}
+.image-card .price-tag-pill.outline {
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.price-recommend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.price-recommend-avatars {
+  display: flex;
+}
+.price-recommend-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  margin-right: -8px;
+  background-size: cover;
+  background-position: center;
+}
+.price-recommend-avatar:last-child {
+  margin-right: 0;
+}
+.price-recommend-text {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  max-width: 100px;
+  line-height: 1.2;
+}
+
+.price-card-middle {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin: 40px 0;
+}
+.price-card-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2rem, 4.2vw, 3rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.price-card-subtitle {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-bottom: 24px;
+}
+.price-capsule {
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 100px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+}
+.green-card .price-capsule {
+  background: #065F46;
+  color: var(--white);
+}
+.image-card .price-capsule {
+  background: var(--white);
+  color: var(--text);
+}
+
+.price-card-bottom {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+}
+.price-total-box {
+  width: 100%;
+}
+.price-divider {
+  height: 1px;
+  width: 100%;
+  margin-bottom: 16px;
+}
+.green-card .price-divider {
+  background: rgba(6, 78, 59, 0.15);
+}
+.image-card .price-divider {
+  background: rgba(255, 255, 255, 0.2);
+}
+.price-total-text {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+}
+.price-card-arrow {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+.price-card-arrow:hover {
+  transform: rotate(45deg);
+  background: var(--primary);
+  color: var(--white);
+}
+.price-card-arrow svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  fill: none;
+}
+
+/* SECTION 5: TESTIMONIALS (SCREENSHOT 5 SLIDER CLONE) */
+.testi-section {
+  background: var(--light);
+}
+.testi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 56px;
+  gap: 40px;
+}
+.testi-header-badges {
+  display: flex;
+  gap: 10px;
+}
+.testi-badge-outline {
+  border: 1.5px solid var(--border);
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+.testi-badge-dark {
+  background: var(--dark);
+  color: var(--white);
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.testi-header-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text);
+  text-transform: uppercase;
+  max-width: 320px;
+  line-height: 1.2;
+}
+
+.testi-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr 0.5fr;
+  gap: 56px;
+  align-items: center;
+}
+.testi-left-photo {
+  aspect-ratio: 3/4;
+  border-radius: 28px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+  transition: background-image 0.5s ease-in-out;
+}
+.testi-center-content {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.testi-quote-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.testi-quote-mark {
+  font-size: 90px;
+  font-family: Georgia, serif;
+  line-height: 0.1;
+  color: var(--primary);
+  margin-top: 36px;
+}
+.testi-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.85rem);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text);
+  min-height: 120px;
+  transition: opacity 0.3s;
+}
+.testi-author-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
+.testi-author-info {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.testi-author-info strong {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  color: var(--text);
+  display: block;
+  margin-bottom: 2px;
+}
+.testi-pagination {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+.testi-pagination span {
+  color: var(--text);
+}
+.testi-right-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.testi-next-card {
+  aspect-ratio: 1;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+  transition: background-image 0.5s ease-in-out;
+}
+
+/* SECTION 6: MASSIVE GRAPHICAL LETTER BANNER (SCREENSHOT 5 CLONE) */
+.massive-text-banner {
+  position: relative;
+  padding: 90px 0;
+  text-align: center;
+  background: var(--white);
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.banner-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(3.2rem, 11vw, 8.5rem);
+  font-weight: 950;
+  color: rgba(0, 0, 0, 0.05);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  display: inline-block;
+}
+.banner-overlap-img {
+  position: absolute;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  border: 4px solid var(--white);
+}
+.banner-overlap-img.img-1 {
+  width: 140px;
+  height: 140px;
+  top: 50%;
+  left: 15%;
+  transform: translateY(-50%) rotate(-8deg);
+  background-image: url('unnamed-62.jpg');
+}
+.banner-overlap-img.img-2 {
+  width: 120px;
+  height: 120px;
+  top: 50%;
+  right: 15%;
+  transform: translateY(-50%) rotate(10deg);
+  background-image: url('Featured-Image-5.jpg');
+}
+
+/* ENROLL / CONTACT & FOOTER */
+.enroll-section {
+  background: var(--light);
 }
 .enroll-grid {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
   gap: 80px;
   align-items: flex-start;
-  margin-top: 60px;
 }
 .enroll-left {
   display: flex;
@@ -994,8 +1218,8 @@ nav.scrolled {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: rgba(224, 69, 106, 0.1);
-  border: 1px solid rgba(224, 69, 106, 0.2);
+  background: rgba(255, 122, 69, 0.1);
+  border: 1px solid rgba(255, 122, 69, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1010,7 +1234,7 @@ nav.scrolled {
 }
 .enroll-info-text strong {
   display: block;
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-weight: 800;
   font-size: 15px;
   letter-spacing: 0.05em;
@@ -1019,24 +1243,24 @@ nav.scrolled {
 }
 .enroll-info-text span {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-muted);
   line-height: 1.5;
 }
 .enroll-map-wrap {
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
-  border: 1px solid var(--border-light);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
 }
 .enroll-form-wrap {
-  background: var(--dark-light);
-  border: 1px solid var(--border-light);
-  border-radius: 24px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 28px;
   padding: 48px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.03);
 }
 .enroll-form-title {
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-weight: 900;
   font-size: 24px;
   text-transform: uppercase;
@@ -1056,39 +1280,34 @@ nav.scrolled {
 }
 .form-group label {
   font-size: 11px;
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-muted);
 }
 .form-group input, .form-group select, .form-group textarea {
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border);
   padding: 14px 18px;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
-  color: var(--white);
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 10px;
+  color: var(--text);
+  background: var(--light);
+  border-radius: 12px;
   outline: none;
   transition: border-color 0.3s, background-color 0.3s;
   width: 100%;
 }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
   border-color: var(--primary);
-  background: rgba(255, 255, 255, 0.06);
-}
-.form-group select option {
-  background: var(--dark-light);
-  color: var(--white);
+  background: var(--white);
 }
 
 /* FOOTER */
 footer {
-  background: #06090F;
-  color: rgba(255, 255, 255, 0.4);
-  padding: 80px 5% 40px;
-  border-top: 1px solid var(--border-light);
+  background: var(--dark);
+  color: rgba(255, 255, 255, 0.45);
+  padding: 80px 4% 40px;
 }
 .footer-inner {
   max-width: 1200px;
@@ -1101,16 +1320,16 @@ footer {
   padding-bottom: 60px;
   border-bottom: 1px solid var(--border-light);
 }
-.footer-brand .logo {
-  margin-bottom: 16px;
+.footer-brand .logo-text {
+  color: var(--white);
 }
 .footer-brand p {
   font-size: 14px;
   line-height: 1.6;
-  color: rgba(255,255,255,0.45);
+  margin-top: 16px;
 }
 .footer-col h4 {
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.1em;
@@ -1133,46 +1352,6 @@ footer {
   align-items: center;
   padding-top: 40px;
   font-size: 13px;
-}
-
-/* LIGHTBOX */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(10, 13, 20, 0.98);
-  z-index: 2000;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 20px;
-}
-.lightbox.open {
-  display: flex;
-}
-.lightbox-close {
-  position: absolute;
-  top: 30px;
-  right: 40px;
-  font-size: 32px;
-  color: var(--white);
-  cursor: pointer;
-  background: none;
-  border: none;
-  font-weight: 300;
-}
-.lightbox-img {
-  width: min(90vw, 900px);
-  height: min(75vh, 600px);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 8px;
-}
-.lightbox-caption {
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.65);
-  font-weight: 500;
 }
 
 /* PROGRAM DETAIL DRAWER */
@@ -1247,7 +1426,7 @@ footer {
   position: absolute;
   bottom: 20px;
   left: 32px;
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 72px;
   font-weight: 900;
   color: rgba(255, 255, 255, 0.15);
@@ -1266,16 +1445,16 @@ footer {
   text-transform: uppercase;
   color: var(--primary);
   background: var(--primary-light);
-  border: 1px solid var(--primary-border);
+  border: 1px solid rgba(255, 122, 69, 0.2);
   padding: 4px 14px;
   border-radius: 100px;
   margin-bottom: 16px;
 }
 .drawer-title {
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 36px;
   font-weight: 900;
-  color: var(--dark);
+  color: var(--text);
   line-height: 1.1;
   text-transform: uppercase;
   margin-bottom: 16px;
@@ -1382,6 +1561,46 @@ footer {
   background: var(--primary-hover);
 }
 
+/* IMAGE LIGHTBOX */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 13, 20, 0.98);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.lightbox.open {
+  display: flex;
+}
+.lightbox-close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 32px;
+  color: var(--white);
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-weight: 300;
+}
+.lightbox-img {
+  width: min(90vw, 900px);
+  height: min(75vh, 600px);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 8px;
+}
+.lightbox-caption {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 500;
+}
+
 /* WHATSAPP FLOAT BUTTON */
 .wa-float {
   position: fixed;
@@ -1464,7 +1683,7 @@ footer {
 
 /* ══════════════ GALLERY PAGE ══════════════ */
 .gallery-page-header {
-  padding: 140px 5% 40px;
+  padding: 140px 4% 40px;
   border-bottom: 1px solid var(--border);
   background: var(--white);
 }
@@ -1493,7 +1712,7 @@ footer {
   stroke-width: 2.5;
 }
 .gallery-page-body {
-  padding: 60px 5% 100px;
+  padding: 60px 4% 100px;
   background: var(--light);
 }
 .filter-bar {
@@ -1506,7 +1725,7 @@ footer {
   padding: 10px 22px;
   font-size: 13px;
   font-family: 'Inter', sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: 100px;
   border: 1.5px solid var(--border);
   background: var(--white);
@@ -1529,7 +1748,7 @@ footer {
   overflow: hidden;
   cursor: pointer;
   position: relative;
-  border-radius: 16px;
+  border-radius: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.03);
 }
 .g-item-inner {
@@ -1566,176 +1785,55 @@ footer {
   text-transform: uppercase;
 }
 
-/* ══════════════ ABOUT PAGE ══════════════ */
-.about-page-body {
-  padding: 60px 5% 100px;
-  background: var(--white);
-}
-.about-dark-hero {
-  background: var(--dark);
-  color: var(--white);
-  padding: 120px 5% 80px;
-  border-bottom: 1px solid var(--border-light);
-}
-.about-dark-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-.about-stats-panel {
-  display: grid;
-  grid-template-columns: 1fr;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid var(--border-light);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-}
-.about-stat-row {
-  padding: 32px 40px;
-  border-bottom: 1px solid var(--border-light);
-  background: var(--dark-light);
-}
-.about-stat-row:last-child {
-  border-bottom: none;
-}
-.about-stat-num {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 900;
-  font-size: 48px;
-  color: var(--primary);
-  line-height: 1;
-}
-.about-stat-label {
-  font-size: 12px;
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.4);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-top: 8px;
-}
-.about-detail-grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-}
-.about-philosophy-lead {
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.7;
-  color: var(--text);
-  margin-top: 24px;
-  margin-bottom: 20px;
-}
-.about-philosophy-desc {
-  font-size: 15px;
-  color: var(--text-muted);
-  line-height: 1.75;
-}
-.about-features-list {
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  overflow: hidden;
-}
-.about-feature-box {
-  padding: 28px 36px;
-  border-bottom: 1px solid var(--border);
-}
-.about-feature-box:last-child {
-  border-bottom: none;
-}
-.about-feature-title {
-  font-family: 'Barlow', sans-serif;
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--text);
-  margin-bottom: 8px;
-  text-transform: uppercase;
-}
-.about-feature-text {
-  font-size: 14px;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
 /* RESPONSIVE LAYOUT OVERRIDES */
 @media (max-width: 1024px) {
-  nav {
-    height: 72px;
+  header {
+    top: 16px;
   }
-  .nav-links {
-    gap: 20px;
+  .welcome-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
-  .about-asymmetric-grid {
-    grid-template-columns: 1.2fr 1fr;
-    gap: 36px;
+  .welcome-card-portrait {
+    aspect-ratio: 16/10;
   }
-  .about-col-center {
+  .welcome-card-bg {
+    background-position: center 30%;
+  }
+  .trainers-masonry {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .trainer-card.height-tall, .trainer-card.height-short {
+    height: 320px;
+  }
+  .prices-grid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+  }
+  .testi-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .testi-left-photo {
     display: none;
   }
-  .programs-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .coaches-new-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .academy-section-grid {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
-  .gallery-full-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .testi-right-preview {
+    display: none;
   }
 }
 
 @media (max-width: 768px) {
-  nav {
-    padding: 0 24px;
-  }
-  nav.scrolled {
-    top: 10px;
-    left: 20px;
-    right: 20px;
-    padding: 0 20px;
-  }
-  .nav-links {
+  .nav-group:nth-child(2) .nav-pill:not(.dark-pill) {
     display: none;
   }
-  .hero {
-    min-height: 100vh;
-    padding: 100px 24px 60px;
+  .nav-group:nth-child(3) {
+    display: none;
   }
-  .hero-inner {
-    grid-template-columns: 1fr;
+  .nav-container {
+    justify-content: space-between;
   }
-  .hero-title {
-    font-size: clamp(2.5rem, 12vw, 4.2rem);
-  }
-  .about-quote-row {
-    flex-direction: column;
-    gap: 24px;
-    text-align: center;
-  }
-  .about-asymmetric-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .programs-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-  }
-  .coaches-section-header {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .testimonials-grid {
-    grid-template-columns: 1fr;
+  .hero-bottom-left, .hero-bottom-right {
+    display: none;
   }
   .enroll-grid {
     grid-template-columns: 1fr;
@@ -1757,43 +1855,14 @@ footer {
     gap: 16px;
     text-align: center;
   }
-  .about-dark-inner {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
-  .about-detail-grid {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
   .gallery-full-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 480px) {
-  .hero-btns {
-    flex-direction: column;
-    width: 100%;
-  }
-  .hero-btns .btn {
-    width: 100%;
-  }
-  .programs-grid {
+  .gallery-full-grid {
     grid-template-columns: 1fr;
-  }
-  .coaches-new-grid {
-    grid-template-columns: 1fr;
-  }
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-  }
-  .gallery-item {
-    height: 200px;
-  }
-  .gallery-item:first-child {
-    grid-row: auto;
-    height: 200px;
   }
   .wa-float {
     bottom: 20px;
@@ -1802,34 +1871,60 @@ footer {
   .wa-tooltip {
     display: none;
   }
-  .gallery-full-grid {
-    grid-template-columns: 1fr;
-  }
 }
 </style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
-<nav id="navbar">
-  <div class="nav-inner">
-    <div class="logo" onclick="showPage('home')">
-      <div class="logo-icon">HG</div>
-      <div class="logo-text">
-        <span>Hemanth</span>
-        <span>Gymnastics</span>
+<!-- NAVIGATION HEADER -->
+<header id="navbar">
+  <div class="nav-container">
+    <div class="nav-group">
+      <div class="nav-pill logo-pill" onclick="showPage('home')">
+        <div class="logo-symbol">HG</div>
+        Hemanth
       </div>
     </div>
-    <div class="nav-links">
-      <a onclick="goToSection('classes')">Programs</a>
-      <a onclick="goToSection('coaches')">Coaches</a>
-      <a onclick="showPage('gallery')">Gallery</a>
-      <a onclick="showPage('about')">About Us</a>
-      <a onclick="goToSection('enroll')">Contact</a>
+    <div class="nav-group">
+      <div class="nav-pill dark-pill" onclick="toggleOverlayMenu()">
+        MENU
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+      </div>
+      <div class="nav-pill" onclick="showPage('about')">About</div>
+      <div class="nav-pill" onclick="goToSection('classes')">
+        Programs
+        <svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+      </div>
     </div>
-    <button class="btn btn-primary nav-cta" onclick="goToSection('enroll')">Contact Us ↗&#xFE0E;</button>
+    <div class="nav-group">
+      <div class="nav-pill circle-pill" onclick="goToSection('enroll')">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <div class="nav-pill dark-pill email-pill" onclick="location.href='mailto:info@hemanthgymnastics.in'">
+        info@hemanthgymnastics.in
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div class="nav-pill orange-pill" onclick="goToSection('enroll')">
+        Free Trial ↗&#xFE0E;
+      </div>
+    </div>
   </div>
-</nav>
+</header>
+
+<!-- OVERLAY FULL-SCREEN MENU -->
+<div class="menu-overlay" id="menuOverlay">
+  <button class="menu-overlay-close" onclick="toggleOverlayMenu()">
+    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <div class="menu-overlay-links">
+    <a onclick="showPage('home'); toggleOverlayMenu()">Home</a>
+    <a onclick="goToSection('classes'); toggleOverlayMenu()">Programs</a>
+    <a onclick="goToSection('coaches'); toggleOverlayMenu()">Coaches</a>
+    <a onclick="showPage('gallery'); toggleOverlayMenu()">Gallery</a>
+    <a onclick="showPage('about'); toggleOverlayMenu()">About Academy</a>
+    <a onclick="goToSection('enroll'); toggleOverlayMenu()">Contact Us</a>
+  </div>
+</div>
 
 <!-- ══════════════ PAGE: HOME ══════════════ -->
 <div id="page-home" class="page active">
@@ -1837,250 +1932,165 @@ footer {
   <!-- HERO -->
   <div class="hero">
     <div class="hero-overlay"></div>
-    <div class="hero-inner">
-      <div class="hero-content">
-        <div class="hero-badge"><span></span>Hyderabad, Telangana</div>
-        <h1 class="hero-title">Train.<br/>Flip.<br/><em>Succeed.</em></h1>
-        <p class="hero-desc">Professional gymnastics training for all ages and skill levels — from tiny tots to competitive athletes. We build strength, discipline, and core confidence.</p>
-        <div class="hero-btns">
-          <button class="btn btn-primary" onclick="goToSection('enroll')">Book a Trial ↗&#xFE0E;</button>
-          <button class="btn btn-outline" onclick="goToSection('classes')">View Programs ↗&#xFE0E;</button>
+    <div class="hero-content">
+      <div class="hero-bottom-left">
+        Get the app
+        <div class="app-icons-group">
+          <div class="app-icon-circle">
+            <!-- Apple icon -->
+            <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.22.67-2.94 1.51-.64.73-1.2 1.87-1.05 2.98 1.11.09 2.25-.57 3-1.43z"/></svg>
+          </div>
+          <div class="app-icon-circle">
+            <!-- Google Play icon -->
+            <svg viewBox="0 0 24 24"><path d="M3 5.277L14.77 17.05l2.25-2.25L3 3v2.277zm18.3 7.823l-3.3-1.9-3.18 3.18 3.3 1.9a1.8 1.8 0 0 0 1.8-1.8 1.83 1.83 0 0 0-1.62-1.38zM3.3 21h1.9l9.57-9.57L3 3.3v17.7z"/></svg>
+          </div>
+          <div class="app-icon-circle download-btn">
+            <!-- Download icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </div>
         </div>
+      </div>
+      
+      <h1 class="hero-title">Join today to learn gymnastics, improve skills, and enjoy the sport!</h1>
+      <p class="hero-subtitle">Search certified batches, find professional coaches, and book sessions easily.</p>
+      
+      <button class="hero-cta-btn" onclick="goToSection('enroll')">
+        Join Now
+        <div class="hero-cta-arrow">
+          <svg viewBox="0 0 24 24"><polyline points="7 7 17 7 17 17"/><line x1="17" y1="7" x2="7" y2="17"/></svg>
+        </div>
+      </button>
+
+      <div class="hero-bottom-right">
+        <div class="satisfied-avatars">
+          <div class="satisfied-avatar" style="background-image: url('unnamed-58.jpg')"></div>
+          <div class="satisfied-avatar" style="background-image: url('Featured-Image-5.jpg')"></div>
+          <div class="satisfied-avatar" style="background-image: url('gymnast-pose.jpg')"></div>
+        </div>
+        <div class="satisfied-text">500+ Satisfied Clients With Us</div>
       </div>
     </div>
   </div>
 
-  <!-- ABOUT / QUOTE SECTION (SCREENSHOT 2 CLONE) -->
-  <section class="about-section">
+  <!-- SECTION 2: WELCOME / ASYMMETRICAL CARDS (SCREENSHOT 2 CLONE) -->
+  <section class="welcome-section">
     <div class="section-inner">
-      
-      <!-- Top Quote Banner -->
-      <div class="about-quote-row fade-up">
-        <div class="about-quote-img"></div>
-        <blockquote class="about-quote">
-          At Hemanth Gymnastics, we build <span class="highlight">confident gymnasts</span>, <span class="highlight">strong teamwork</span>, and <span class="highlight">lifelong discipline</span> through professional coaching.
-        </blockquote>
-      </div>
-
-      <!-- Asymmetrical Grid Layout -->
-      <div class="about-asymmetric-grid">
-        <div class="about-col-left fade-up">
-          <span class="badge">About Us</span>
-          <h2 class="about-lead">We're shaping Hyderabad's next generation of gymnasts with dedication, modern facilities, and values that go beyond the mat.</h2>
-          <button class="btn btn-accent" onclick="goToSection('enroll')">Get in Touch ↗&#xFE0E;</button>
-        </div>
-        <div class="about-col-center fade-up" style="transition-delay: 0.1s">
-          <div class="about-img-portrait"></div>
-        </div>
-        <div class="about-col-right fade-up" style="transition-delay: 0.2s">
-          <p class="about-desc">Our mission is to nurture young talent with skilled coaching, posture correction, spatial awareness, and a spirit of true sportsmanship.</p>
-          <div class="about-img-landscape"></div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PROGRAMS SECTION (SCREENSHOT 3 CLONE) -->
-  <section class="programs-section" id="classes">
-    <div class="section-inner">
-      <div class="programs-header fade-up">
-        <h2 class="section-title-outline">OUR <span class="solid">PROGRAMS</span></h2>
-        <p class="programs-header-desc">Comprehensive training programs crafted for every age, skill level, and ambition on the journey to athletic excellence.</p>
-      </div>
-
-      <div class="programs-grid">
+      <div class="welcome-grid">
         
-        <!-- Tiny Tots -->
-        <div class="program-card fade-up" onclick="openDrawer('tiny-tots')">
-          <div class="program-card-bg" style="background-image: url('Featured-Image-5.jpg'); background-position: center 30%;"></div>
-          <div class="program-card-overlay"></div>
-          <div class="program-card-content">
-            <h3 class="program-card-title">Tiny Tots</h3>
-            <span class="program-card-age">Ages 3–5</span>
+        <!-- Left: Badge, Title, CTA -->
+        <div class="welcome-left fade-up">
+          <div class="welcome-left-content">
+            <span class="badge">Gymnastics Center</span>
+            <h2 class="welcome-title">Welcome to Hemanth Gymnastics, where we inspire athletes to reach new heights on and off the mat.</h2>
           </div>
-          <button class="program-card-btn" aria-label="View Tiny Tots Batch"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+          <button class="btn btn-accent btn-orange-pill" onclick="goToSection('enroll')">Get in touch ↗&#xFE0E;</button>
         </div>
 
-        <!-- Beginners -->
-        <div class="program-card fade-up" onclick="openDrawer('beginners')" style="transition-delay: 0.05s">
-          <div class="program-card-bg" style="background-image: url('images.jpeg')"></div>
-          <div class="program-card-overlay"></div>
-          <div class="program-card-content">
-            <h3 class="program-card-title">Beginners</h3>
-            <span class="program-card-age">Ages 6–9</span>
+        <!-- Center: Portrait Card (Featured-Image-5) -->
+        <div class="welcome-card-portrait fade-up" style="transition-delay: 0.08s">
+          <div class="welcome-card-bg"></div>
+          <div class="welcome-card-overlay"></div>
+          <span class="welcome-card-tag">Tumbling Zone</span>
+          <div class="welcome-card-content">
+            <p class="welcome-card-text">Versatile space for a wide range of activities</p>
+            <button class="welcome-card-btn" onclick="openDrawer('beginners')">
+              <svg viewBox="0 0 24 24"><polyline points="7 7 17 7 17 17"/><line x1="17" y1="7" x2="7" y2="17"/></svg>
+            </button>
           </div>
-          <button class="program-card-btn" aria-label="View Beginners Batch"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
         </div>
 
-        <!-- Intermediate -->
-        <div class="program-card fade-up" onclick="openDrawer('intermediate')" style="transition-delay: 0.1s">
-          <div class="program-card-bg" style="background-image: url('gymnast-pose.jpg'); background-position: center 30%;"></div>
-          <div class="program-card-overlay"></div>
-          <div class="program-card-content">
-            <h3 class="program-card-title">Intermediate</h3>
-            <span class="program-card-age">Ages 9–13</span>
+        <!-- Right: Landscape Card, Description & Slides control -->
+        <div class="welcome-right fade-up" style="transition-delay: 0.16s">
+          <div class="welcome-card-landscape">
+            <div class="welcome-landscape-bg" id="welcomeLandscapeBg" style="background-image: url('unnamed-62.jpg')"></div>
           </div>
-          <button class="program-card-btn" aria-label="View Intermediate Batch"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-        </div>
-
-        <!-- Advanced -->
-        <div class="program-card fade-up" onclick="openDrawer('advanced')" style="transition-delay: 0.15s">
-          <div class="program-card-bg" style="background-image: url('Safe-Gymnastics-Training.jpg')"></div>
-          <div class="program-card-overlay"></div>
-          <div class="program-card-content">
-            <h3 class="program-card-title">Advanced &amp; Competitive</h3>
-            <span class="program-card-age">Ages 12–17</span>
+          <div class="welcome-right-desc-box">
+            <h4 class="welcome-right-title" id="welcomeRightTitle">Balance Beams</h4>
+            <p class="welcome-right-text" id="welcomeRightText">Explore the ideal space to play, train, and reach new heights. Our apparatus setup is tailored to ensure safety and correct body alignment.</p>
+            <div class="welcome-nav-btns">
+              <button class="welcome-nav-btn" onclick="slideWelcome(-1)"><svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></button>
+              <button class="welcome-nav-btn dark-btn" onclick="slideWelcome(1)"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+            </div>
           </div>
-          <button class="program-card-btn" aria-label="View Advanced Batch"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-        </div>
-
-        <!-- Artistic -->
-        <div class="program-card fade-up" onclick="openDrawer('artistic')" style="transition-delay: 0.2s">
-          <div class="program-card-bg" style="background-image: url('images-3.jpeg')"></div>
-          <div class="program-card-overlay"></div>
-          <div class="program-card-content">
-            <h3 class="program-card-title">Artistic Gymnastics</h3>
-            <span class="program-card-age">Ages 10–18</span>
-          </div>
-          <button class="program-card-btn" aria-label="View Artistic Batch"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-        </div>
-
-        <!-- Adult Fitness -->
-        <div class="program-card fade-up" onclick="openDrawer('adult')" style="transition-delay: 0.25s">
-          <div class="program-card-bg" style="background-image: url('images-2.jpeg'); background-position: center 75%;"></div>
-          <div class="program-card-overlay"></div>
-          <div class="program-card-content">
-            <h3 class="program-card-title">Adult Fitness</h3>
-            <span class="program-card-age">Ages 18+</span>
-          </div>
-          <button class="program-card-btn" aria-label="View Adult Batch"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- COACHES SECTION (SCREENSHOT 4 CLONE) -->
-  <section class="coaches-section" id="coaches">
+  <!-- SECTION 3: MEET OUR PRO TRAINERS (STAGGERED HEIGHTS CLONE) -->
+  <section class="trainers-section" id="coaches">
     <div class="section-inner">
-      
-      <div class="coaches-section-header fade-up">
-        <div class="coaches-header-left">
-          <span class="badge">Meet Our Coaches</span>
-          <p class="coaches-header-subtitle">Experienced mentors dedicated to building discipline, skill, and confidence in every student.</p>
-        </div>
-        <h2 class="coaches-header-title">ELITE COACHES, <span class="grey">BUILDING</span> FUTURE <span class="grey">CHAMPIONS</span></h2>
-      </div>
-
-      <div class="single-coach-layout fade-up">
-        <div class="single-coach-content">
-          <span class="badge">Head Coach &amp; Founder</span>
-          <h3 class="single-coach-name">Hemanth</h3>
-          <span class="single-coach-exp">12+ Years Professional Training Experience</span>
-          <p class="single-coach-desc">Hemanth is the founder and head trainer at Hemanth Gymnastics Academy. With over 12 years of coaching and competitive experience, he has built a dedicated program focusing on core strength, safe tumbling techniques, and gradual athletic progression. He treats every student with equal encouragement, creating a friendly, disciplined, and supportive training environment.</p>
-          <div class="single-coach-achievements">
-            <div class="coach-achieve-item"><strong>12+ Years</strong><span>Coaching Track</span></div>
-            <div class="coach-achieve-item"><strong>10+</strong><span>Spotting Certs</span></div>
-            <div class="coach-achieve-item"><strong>State-Level</strong><span>Medal Pathway</span></div>
-          </div>
-          <button class="btn btn-accent" onclick="goToSection('enroll')">Enroll in a Batch ↗&#xFE0E;</button>
-        </div>
-        <div class="single-coach-image-wrap">
-          <div class="single-coach-image" style="background-image: url('hemanth-coach.jpg')"></div>
+      <div class="trainers-header fade-up">
+        <h2 class="trainers-title">Meet our pro trainers</h2>
+        <p class="trainers-subtitle">From experienced state-level champions to SAI-trained coaches, we provide a team of certified professionals. Our personal attention helps students quickly get great results.</p>
+        <div class="trainers-filter-bar">
+          <button class="trainers-filter-btn active" onclick="filterTrainers(this, 'all')">All Coaches</button>
+          <button class="trainers-filter-btn" onclick="filterTrainers(this, 'head')">Head Coach</button>
+          <button class="trainers-filter-btn" onclick="filterTrainers(this, 'artistic')">Artistic Specialists</button>
+          <button class="trainers-filter-btn" onclick="filterTrainers(this, 'conditioning')">Conditioning</button>
         </div>
       </div>
 
-    </div>
-  </section>
-
-  <!-- STEP INSIDE / ACADEMY SECTION (SCREENSHOT 5 CLONE) -->
-  <section class="academy-section">
-    <div class="section-inner">
-      <div class="academy-section-grid">
+      <div class="trainers-masonry">
         
-        <!-- Left Side content -->
-        <div class="academy-left fade-up">
-          <h2 class="section-title-outline">STEP INSIDE OUR <span class="solid">ACADEMY</span></h2>
-          <p class="academy-intro">Experience our modern training facilities designed to nurture talent, improve performance, and give every gymnast the tools to succeed on and off the mat.</p>
-          <div class="academy-big-img"></div>
+        <!-- Hemanth (Founder / Head Coach) -->
+        <div class="trainer-card-wrapper fade-up" data-type="head">
+          <div class="trainer-card height-tall">
+            <div class="trainer-card-photo" style="background-image: url('hemanth-coach.jpg')"></div>
+            <div class="trainer-contact-badge" onclick="goToSection('enroll')">
+              Contact Me
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </div>
+          </div>
+          <div class="trainer-meta">
+            <h4 class="trainer-name">Hemanth</h4>
+            <span class="trainer-title-text">Founder &amp; Head Coach</span>
+          </div>
         </div>
 
-        <!-- Right Side interactive accordion -->
-        <div class="academy-right fade-up" style="transition-delay: 0.1s">
-          <div class="academy-accordion">
-            
-            <!-- Accordion Item 1 (Active) -->
-            <div class="accordion-item active" data-index="0">
-              <div class="accordion-header" onclick="toggleAccordion(0)">
-                <span class="accordion-title">Certified Coaches</span>
-                <span class="accordion-icon"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></span>
-              </div>
-              <div class="accordion-content">
-                <div class="accordion-content-inner">
-                  <div class="accordion-text-side">
-                    <p>Our trainers are certified professionals with national and state-level competitive training experience.</p>
-                    <button class="btn btn-outline-dark" onclick="goToSection('coaches')">Meet Coaches ↗&#xFE0E;</button>
-                  </div>
-                  <div class="accordion-img-side" style="background-image: url('unnamed-58.jpg')"></div>
-                </div>
-              </div>
+        <!-- Priya Sharma (Head Coach) -->
+        <div class="trainer-card-wrapper fade-up" data-type="head" style="transition-delay: 0.08s">
+          <div class="trainer-card height-short">
+            <div class="trainer-card-photo" style="background-image: url('unnamed-58.jpg'); background-position: center 30%;"></div>
+            <div class="trainer-contact-badge" onclick="goToSection('enroll')">
+              Contact Me
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             </div>
-
-            <!-- Accordion Item 2 -->
-            <div class="accordion-item" data-index="1">
-              <div class="accordion-header" onclick="toggleAccordion(1)">
-                <span class="accordion-title">Professional Apparatus</span>
-                <span class="accordion-icon"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></span>
-              </div>
-              <div class="accordion-content">
-                <div class="accordion-content-inner">
-                  <div class="accordion-text-side">
-                    <p>Olympic-standard balance beams, vault runway systems, uneven bars, full floor exercise setups, and safety pits.</p>
-                    <button class="btn btn-outline-dark" onclick="showPage('about')">Learn More ↗&#xFE0E;</button>
-                  </div>
-                  <div class="accordion-img-side" style="background-image: url('unnamed-62.jpg')"></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Accordion Item 3 -->
-            <div class="accordion-item" data-index="2">
-              <div class="accordion-header" onclick="toggleAccordion(2)">
-                <span class="accordion-title">Proven Safety Standards</span>
-                <span class="accordion-icon"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></span>
-              </div>
-              <div class="accordion-content">
-                <div class="accordion-content-inner">
-                  <div class="accordion-text-side">
-                    <p>Double-spotting safety configurations, soft landing foam zones, and high density safety crash mats.</p>
-                    <button class="btn btn-outline-dark" onclick="goToSection('enroll')">Enroll Now ↗&#xFE0E;</button>
-                  </div>
-                  <div class="accordion-img-side" style="background-image: url('unnamed-53.jpg')"></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Accordion Item 4 -->
-            <div class="accordion-item" data-index="3">
-              <div class="accordion-header" onclick="toggleAccordion(3)">
-                <span class="accordion-title">Community &amp; Growth</span>
-                <span class="accordion-icon"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></span>
-              </div>
-              <div class="accordion-content">
-                <div class="accordion-content-inner">
-                  <div class="accordion-text-side">
-                    <p>Structured goal setting, confidence-boosting exercises, and monthly performance tracking profiles.</p>
-                    <button class="btn btn-outline-dark" onclick="goToSection('enroll')">Read Details ↗&#xFE0E;</button>
-                  </div>
-                  <div class="accordion-img-side" style="background-image: url('unnamed-56.jpg')"></div>
-                </div>
-              </div>
-            </div>
-
           </div>
-          <div class="accordion-footer">
-            <button class="btn btn-accent btn-primary-pill" onclick="goToSection('enroll')">Get in Touch ↗&#xFE0E;</button>
+          <div class="trainer-meta">
+            <h4 class="trainer-name">Priya Sharma</h4>
+            <span class="trainer-title-text">Head Coach (Tiny Tots)</span>
+          </div>
+        </div>
+
+        <!-- Ananya Verma -->
+        <div class="trainer-card-wrapper fade-up" data-type="artistic" style="transition-delay: 0.16s">
+          <div class="trainer-card height-tall">
+            <div class="trainer-card-photo" style="background-image: url('gymnast-pose.jpg'); background-position: center 30%;"></div>
+            <div class="trainer-contact-badge" onclick="goToSection('enroll')">
+              Contact Me
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </div>
+          </div>
+          <div class="trainer-meta">
+            <h4 class="trainer-name">Ananya Verma</h4>
+            <span class="trainer-title-text">Artistic Gymnastics Coach</span>
+          </div>
+        </div>
+
+        <!-- Kiran Joshi -->
+        <div class="trainer-card-wrapper fade-up" data-type="conditioning" style="transition-delay: 0.24s">
+          <div class="trainer-card height-short">
+            <div class="trainer-card-photo" style="background-image: url('Safe-Gymnastics-Training.jpg'); background-position: center 20%;"></div>
+            <div class="trainer-contact-badge" onclick="goToSection('enroll')">
+              Contact Me
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </div>
+          </div>
+          <div class="trainer-meta">
+            <h4 class="trainer-name">Kiran Joshi</h4>
+            <span class="trainer-title-text">Conditioning &amp; Strength Trainer</span>
           </div>
         </div>
 
@@ -2088,95 +2098,145 @@ footer {
     </div>
   </section>
 
-  <!-- GALLERY PREVIEW -->
-  <section class="gallery-section">
+  <!-- SECTION 4: PRICES / PLANS (SCREENSHOT 4 CLONE) -->
+  <section class="prices-section" id="classes">
     <div class="section-inner">
-      <div class="fade-up" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px">
-        <div>
-          <span class="badge">Visuals</span>
-          <h2 class="section-title-outline" style="margin-top:12px">Inside Our <span class="solid">Academy</span></h2>
+      <div class="prices-header fade-up">
+        <h2 class="prices-title">Find the Perfect Plan for Your Athletic <span class="emoji">🤸</span> Journey</h2>
+        <div class="prices-link-group" onclick="goToSection('enroll')">
+          <span>See More Options</span>
+          <div class="prices-link-btn">
+            <svg viewBox="0 0 24 24"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
+          </div>
         </div>
-        <button class="btn btn-outline-dark" onclick="showPage('gallery')">View All Photos →&#xFE0E;</button>
       </div>
 
-      <div class="gallery-grid fade-up" style="transition-delay:0.1s">
-        <div class="gallery-item" onclick="showPage('gallery')">
-          <div class="gallery-placeholder" style="background:url('unnamed-63.jpg')"></div>
+      <div class="prices-grid">
+        
+        <!-- Package 1: Green Card -->
+        <div class="price-card green-card fade-up">
+          <div class="price-card-top">
+            <div class="price-tags">
+              <span class="price-tag-pill black">Best Seller</span>
+              <span class="price-tag-pill outline">1 Year Expiry</span>
+            </div>
+            <div class="price-recommend">
+              <div class="price-recommend-avatars">
+                <div class="price-recommend-avatar" style="background-image: url('unnamed-58.jpg')"></div>
+                <div class="price-recommend-avatar" style="background-image: url('gymnast-pose.jpg')"></div>
+              </div>
+              <span class="price-recommend-text">Recommended by GFI Coaches</span>
+            </div>
+          </div>
+
+          <div class="price-card-middle">
+            <h3 class="price-card-title">6 Month Package</h3>
+            <p class="price-card-subtitle">Individualized Coaching</p>
+            <div class="price-capsule">₹3,500 <span style="font-size: 13px; font-weight:500;">/Session</span></div>
+          </div>
+
+          <div class="price-card-bottom">
+            <div class="price-total-box">
+              <div class="price-divider"></div>
+              <span class="price-total-text">₹21,000 / Total Cost</span>
+            </div>
+            <button class="price-card-arrow" onclick="goToSection('enroll')">
+              <svg viewBox="0 0 24 24"><polyline points="7 7 17 7 17 17"/><line x1="17" y1="7" x2="7" y2="17"/></svg>
+            </button>
+          </div>
         </div>
-        <div class="gallery-item" onclick="showPage('gallery')">
-          <div class="gallery-placeholder" style="background:url('unnamed-62.jpg')"></div>
+
+        <!-- Package 2: Image Card -->
+        <div class="price-card image-card fade-up" style="transition-delay: 0.1s">
+          <div class="price-card-overlay"></div>
+          <div class="price-card-top">
+            <div class="price-tags">
+              <span class="price-tag-pill outline">Best Seller</span>
+              <span class="price-tag-pill outline">1 Year Expiry</span>
+            </div>
+            <div class="price-recommend">
+              <div class="price-recommend-avatars">
+                <div class="price-recommend-avatar" style="background-image: url('unnamed-58.jpg')"></div>
+                <div class="price-recommend-avatar" style="background-image: url('gymnast-pose.jpg')"></div>
+              </div>
+              <span class="price-recommend-text" style="color: white">Recommended by GFI Coaches</span>
+            </div>
+          </div>
+
+          <div class="price-card-middle">
+            <h3 class="price-card-title">12 Month Package</h3>
+            <p class="price-card-subtitle">Individualized Coaching</p>
+            <div class="price-capsule">₹2,800 <span style="font-size: 13px; font-weight:500;">/Session</span></div>
+          </div>
+
+          <div class="price-card-bottom">
+            <div class="price-total-box">
+              <div class="price-divider"></div>
+              <span class="price-total-text">₹33,600 / Total Cost</span>
+            </div>
+            <button class="price-card-arrow" onclick="goToSection('enroll')">
+              <svg viewBox="0 0 24 24"><polyline points="7 7 17 7 17 17"/><line x1="17" y1="7" x2="7" y2="17"/></svg>
+            </button>
+          </div>
         </div>
-        <div class="gallery-item" onclick="showPage('gallery')">
-          <div class="gallery-placeholder" style="background:url('unnamed-55.jpg')"></div>
-        </div>
-        <div class="gallery-item" onclick="showPage('gallery')">
-          <div class="gallery-placeholder" style="background:url('unnamed-54.jpg')"></div>
-        </div>
-        <div class="gallery-item" onclick="showPage('gallery')">
-          <div class="gallery-placeholder" style="background:url('unnamed-53.jpg')"></div>
-        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="testimonials-section">
+  <!-- SECTION 5: TESTIMONIALS (SCREENSHOT 5 SLIDER CLONE) -->
+  <section class="testi-section">
     <div class="section-inner">
-      <div class="fade-up" style="text-align: center; max-width: 600px; margin: 0 auto;">
-        <span class="badge" style="border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.6)">What Parents Say</span>
-        <h2 class="section-title-outline dark-bg" style="margin-top: 12px">Student <span class="solid">Stories</span></h2>
+      <div class="testi-header fade-up">
+        <div class="testi-header-badges">
+          <span class="testi-badge-outline">Testimonial</span>
+          <span class="testi-badge-dark">What they say</span>
+        </div>
+        <h2 class="testi-header-title">What say our satisfied customers</h2>
       </div>
 
-      <div class="testimonials-grid">
-        <!-- Parent 1 -->
-        <div class="testimonial-card fade-up">
-          <p class="testimonial-quote">"My daughter has been going to this gym for last 6 months and enjoys it. She does 3 days a week. I can see gradual progress of her skills across various gymnastic activities. Hemanth and his team are dedicated and good trainers. This is a good training facility for new to intermediate gymnasts."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">RN</div>
-            <div>
-              <h4 class="testimonial-name">Rajesh Nadipalli</h4>
-              <span class="testimonial-role">Local Guide · Parent</span>
+      <div class="testi-grid-layout fade-up">
+        <div class="testi-left-photo" id="testiLeftPhoto" style="background-image: url('gymnast-pose.jpg')"></div>
+        
+        <div class="testi-center-content">
+          <div class="testi-quote-row">
+            <span class="testi-quote-mark">“</span>
+            <div class="welcome-nav-btns">
+              <button class="welcome-nav-btn" onclick="slideTesti(-1)"><svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></button>
+              <button class="welcome-nav-btn dark-btn" onclick="slideTesti(1)"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
             </div>
+          </div>
+          
+          <p class="testi-text" id="testiText">"My daughter has been going to this gym for last 6 months and enjoys it. She does 3 days a week. I can see gradual progress of her skills across various gymnastic activities. Hemanth and his team are dedicated and good trainers."</p>
+          
+          <div class="testi-author-meta">
+            <div class="testi-author-info">
+              <strong id="testiAuthorName">Rajesh Nadipalli</strong>
+              <span id="testiAuthorRole">Local Guide · Parent</span>
+            </div>
+            <div class="testi-pagination"><span id="testiCurrentIndex">1</span> / <span id="testiTotalCount">3</span></div>
           </div>
         </div>
 
-        <!-- Parent 2 -->
-        <div class="testimonial-card fade-up" style="transition-delay: 0.08s">
-          <p class="testimonial-quote">"Hemanth Gymnastics Academy, Gowlidoddi has been extremely supportive in my child’s overall growth and confidence. The coaches are very professional, patient, and genuinely care about each child’s development. What I really appreciate is how they treat all age groups with equal attention and encouragement, making every child feel valued. The training environment is disciplined yet friendly, which helps kids enjoy learning while improving their skills. Highly recommended for parents looking for quality gymnastics training in Hyderabad."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">SD</div>
-            <div>
-              <h4 class="testimonial-name">Srinivas Dasari</h4>
-              <span class="testimonial-role">Parent Reviewer</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Parent 3 -->
-        <div class="testimonial-card fade-up" style="transition-delay: 0.16s">
-          <p class="testimonial-quote">"My son has been coming to Hemanth Gymnasatics Centre from last 6 months. The coaches here are professional, supportive and patient. They give focus on each kid. I see a lot of improvement in my son's flexibility. They give good planned workouts in the week. Joining such classes will build good confidence, flexibility and strength to kids. Overall having a good experience with the classes."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">AT</div>
-            <div>
-              <h4 class="testimonial-name">Alekhya Thota</h4>
-              <span class="testimonial-role">Parent Reviewer</span>
-            </div>
-          </div>
+        <div class="testi-right-preview">
+          <div class="testi-next-card" id="testiNextPreview" style="background-image: url('Featured-Image-5.jpg')"></div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- SECTION 6: MASSIVE GRAPHICAL LETTER BANNER (SCREENSHOT 5 CLONE) -->
+  <div class="massive-text-banner fade-up">
+    <span class="banner-text">HEMANTH - CONTACT</span>
+    <div class="banner-overlap-img img-1"></div>
+    <div class="banner-overlap-img img-2"></div>
+  </div>
 
   <!-- ENROLL & CONTACT -->
   <section class="enroll-section" id="enroll">
     <div class="section-inner">
-      <div class="fade-up" style="text-align: center; max-width: 600px; margin: 0 auto 40px;">
-        <span class="badge" style="border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.6)">Join Us</span>
-        <h2 class="section-title-outline dark-bg" style="margin-top: 12px">Enroll <span class="solid">Today</span></h2>
-        <p style="color: rgba(255,255,255,0.5); font-size: 15px; margin-top: 16px;">Fill the registration form below and we'll reach out within 24 hours to schedule a free trial class.</p>
-      </div>
-
       <div class="enroll-grid">
+        
         <!-- Contact details / map -->
         <div class="enroll-left fade-up">
           <div class="enroll-info-list">
@@ -2273,7 +2333,7 @@ footer {
       </button>
       <div>
         <span class="badge">Visuals</span>
-        <h1 class="section-title-outline" style="margin-top: 12px">Photo <span class="solid">Gallery</span></h1>
+        <h1 class="section-title-outline" style="margin-top: 12px; -webkit-text-stroke: 1.5px var(--text); color: transparent; font-family: 'Outfit'; font-weight: 800;"><span class="solid" style="color: var(--text); -webkit-text-stroke: 0;">Photo</span> Gallery</h1>
         <p style="color: var(--text-muted); font-size: 15px; margin-top: 12px">Training sessions, championships, annual showcases, and daily moments at Hemanth Gymnastics.</p>
       </div>
     </div>
@@ -2347,14 +2407,14 @@ footer {
 <div id="page-about" class="page">
   
   <div class="about-dark-hero">
-    <div class="about-dark-inner">
+    <div class="about-dark-inner" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; padding: 120px 4% 80px; background: var(--dark); color: var(--white);">
       <div>
         <button class="back-btn" onclick="showPage('home')" style="color: rgba(255,255,255,0.6)">
           <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
           Back to Home
         </button>
         <span class="badge" style="border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.6); margin-top: 16px; display: inline-flex">Academy Profiles</span>
-        <h1 class="section-title-outline dark-bg" style="font-size: 52px; margin-top: 16px; margin-bottom: 24px">Training Champions.<br/><span class="solid">Flip Higher.</span></h1>
+        <h1 style="font-family: 'Outfit'; font-weight: 800; font-size: 52px; margin-top: 16px; margin-bottom: 24px; color: var(--white); line-height: 1.1">Training Champions.<br/>Flip Higher.</h1>
         <p style="color: rgba(255, 255, 255, 0.6); font-size: 16px; line-height: 1.7; max-width: 480px">Hemanth Gymnastics has grown into one of Hyderabad's most respected gymnastics training centres. We believe every child deserves world-class coaching — regardless of where they start.</p>
       </div>
       <div class="about-stats-panel">
@@ -2374,13 +2434,13 @@ footer {
     </div>
   </div>
 
-  <div class="about-page-body">
+  <div class="about-page-body" style="padding: 100px 4%; background: var(--white);">
     <div class="about-detail-grid">
       <div>
         <span class="badge">Our Philosophy</span>
-        <h2 class="about-philosophy-lead">More Than Just Gymnastics — Fostering Character, Health &amp; Athleticism</h2>
-        <p class="about-philosophy-desc" style="margin-bottom: 20px">We train the whole athlete — body, mind, and character. Every child who joins Hemanth Gymnastics leaves stronger, more confident, and more disciplined, whether or not they ever compete at state levels.</p>
-        <p class="about-philosophy-desc">Our facility features full safety-landing foam pits, Olympic-regulation balance beams, uneven parallel bars, a full runway, and multiple spotting rigs to ensure absolute safety at all skill levels.</p>
+        <h2 class="about-philosophy-lead" style="font-family: 'Outfit'; font-weight: 800; font-size: 28px; line-height: 1.3; margin-top: 20px; margin-bottom: 20px; color: var(--text)">More Than Just Gymnastics — Fostering Character, Health &amp; Athleticism</h2>
+        <p class="about-philosophy-desc" style="font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px">We train the whole athlete — body, mind, and character. Every child who joins Hemanth Gymnastics leaves stronger, more confident, and more disciplined, whether or not they ever compete at state levels.</p>
+        <p class="about-philosophy-desc" style="font-size: 15px; color: var(--text-muted); line-height: 1.7">Our facility features full safety-landing foam pits, Olympic-regulation balance beams, uneven parallel bars, a full runway, and multiple spotting rigs to ensure absolute safety at all skill levels.</p>
       </div>
       <div class="about-features-list">
         <div class="about-feature-box">
@@ -2406,14 +2466,10 @@ footer {
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="logo">
-          <div class="logo-icon">HG</div>
-          <div class="logo-text">
-            <span style="color: white">Hemanth</span>
-            <span style="color: rgba(255,255,255,0.4)">Gymnastics</span>
-          </div>
+        <div class="logo-text" style="font-family: 'Outfit'; font-weight: 900; font-size: 24px; text-transform: uppercase; letter-spacing: -0.02em;">
+          Hemanth Gymnastics
         </div>
-        <p style="margin-top: 16px">Professional gymnastics training for all age groups in Gopanpalle, Nallagandla, Hyderabad. Building champions, one flip at a time.</p>
+        <p>Professional gymnastics training for all age groups in Gopanpalle, Nallagandla, Hyderabad. Building champions, one flip at a time.</p>
       </div>
       <div class="footer-col">
         <h4>Programs</h4>
@@ -2522,8 +2578,6 @@ function showPage(name, fromPop) {
     window.scrollTo(0, 0);
   }
   if (!fromPop) history.pushState({page: name}, '', '');
-  
-  // Dynamic navigation links adjustment
   adjustNavTheme(name);
 }
 
@@ -2533,16 +2587,27 @@ window.addEventListener('popstate', function(e){
 
 function adjustNavTheme(pageName) {
   var navbar = document.getElementById('navbar');
-  // For About/Gallery subpages, navbar sticky colors adjust
   if (pageName !== 'home') {
-    navbar.style.background = 'var(--dark)';
+    navbar.style.top = '0';
+    navbar.querySelector('.nav-container').style.background = 'var(--dark)';
+    navbar.querySelector('.nav-container').style.borderRadius = '0';
+    navbar.querySelector('.nav-container').style.padding = '10px 4%';
+    navbar.querySelector('.logo-pill').style.boxShadow = 'none';
   } else {
-    // restore based on scroll position
-    if (window.scrollY > 80) {
-      navbar.style.background = 'rgba(10, 13, 20, 0.85)';
-    } else {
-      navbar.style.background = 'transparent';
-    }
+    navbar.style.top = '24px';
+    navbar.querySelector('.nav-container').style.background = 'transparent';
+    navbar.querySelector('.nav-container').style.padding = '0';
+  }
+}
+
+// Overlay Menu Toggler
+function toggleOverlayMenu() {
+  var menu = document.getElementById('menuOverlay');
+  menu.classList.toggle('open');
+  if (menu.classList.contains('open')) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
   }
 }
 
@@ -2561,6 +2626,84 @@ function goToSection(id) {
   }
 }
 
+// Welcome section Landscape Card Image Slideshow
+var welcomeSlides = [
+  { title: "Balance Beams", text: "Explore the ideal space to play, train, and reach new heights. Our apparatus setup is tailored to ensure safety and correct body alignment.", img: "unnamed-62.jpg" },
+  { title: "Tumbling Runway", text: "Designed for progressive flips, handsprings, and high-impact safe training using double spotting rigs and foam block landing pits.", img: "Safe-Gymnastics-Training.jpg" },
+  { title: "Uneven Bars", text: "Specialized bars featuring swings and release progression sets for artistic and competitive gymnastics pathways.", img: "images-3.jpeg" }
+];
+var currentWelcomeIndex = 0;
+
+function slideWelcome(direction) {
+  currentWelcomeIndex = (currentWelcomeIndex + direction + welcomeSlides.length) % welcomeSlides.length;
+  var slide = welcomeSlides[currentWelcomeIndex];
+  document.getElementById('welcomeLandscapeBg').style.backgroundImage = "url('" + slide.img + "')";
+  document.getElementById('welcomeRightTitle').textContent = slide.title;
+  document.getElementById('welcomeRightText').textContent = slide.text;
+}
+
+// Trainers filtering
+function filterTrainers(btn, category) {
+  document.querySelectorAll('.trainers-filter-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  
+  document.querySelectorAll('.trainer-card-wrapper').forEach(function(card){
+    if (category === 'all' || card.dataset.type === category) {
+      card.style.display = 'flex';
+      setTimeout(function(){ card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 50);
+    } else {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      setTimeout(function(){ card.style.display = 'none'; }, 300);
+    }
+  });
+}
+
+// Testimonials Slider
+var testimonials = [
+  {
+    text: "\"My daughter has been going to this gym for last 6 months and enjoys it. She does 3 days a week. I can see gradual progress of her skills across various gymnastic activities. Hemanth and his team are dedicated and good trainers. This is a good training facility for new to intermediate gymnasts.\"",
+    name: "Rajesh Nadipalli",
+    role: "Local Guide · Parent",
+    photo: "gymnast-pose.jpg",
+    preview: "Featured-Image-5.jpg"
+  },
+  {
+    text: "\"Hemanth Gymnastics Academy, Gowlidoddi has been extremely supportive in my child’s overall growth and confidence. The coaches are very professional, patient, and genuinely care about each child’s development. The training environment is disciplined yet friendly.\"",
+    name: "Srinivas Dasari",
+    role: "Parent Reviewer",
+    photo: "unnamed-58.jpg",
+    preview: "images.jpeg"
+  },
+  {
+    text: "\"My son has been coming to Hemanth Gymnasatics Centre from last 6 months. The coaches here are professional, supportive and patient. They give focus on each kid. I see a lot of improvement in my son's flexibility. They give good planned workouts in the week.\"",
+    name: "Alekhya Thota",
+    role: "Parent Reviewer",
+    photo: "Safe-Gymnastics-Training.jpg",
+    preview: "gymnast-pose.jpg"
+  }
+];
+var currentTestiIndex = 0;
+
+function slideTesti(direction) {
+  currentTestiIndex = (currentTestiIndex + direction + testimonials.length) % testimonials.length;
+  var testi = testimonials[currentTestiIndex];
+  
+  // Fade out
+  var tText = document.getElementById('testiText');
+  tText.style.opacity = '0';
+  
+  setTimeout(function(){
+    tText.textContent = testi.text;
+    document.getElementById('testiLeftPhoto').style.backgroundImage = "url('" + testi.photo + "')";
+    document.getElementById('testiAuthorName').textContent = testi.name;
+    document.getElementById('testiAuthorRole').textContent = testi.role;
+    document.getElementById('testiCurrentIndex').textContent = currentTestiIndex + 1;
+    document.getElementById('testiNextPreview').style.backgroundImage = "url('" + testi.preview + "')";
+    tText.style.opacity = '1';
+  }, 200);
+}
+
 // Gallery categorization
 function filterGallery(btn, cat) {
   document.querySelectorAll('.filter-bar .filter-btn').forEach(function(b){ b.classList.remove('active'); });
@@ -2576,7 +2719,7 @@ var classData = {
     num:'01', title:'Tiny Tots Program', age:'Ages 3 – 5', img:'Featured-Image-5.jpg',
     desc:'A playful introduction to gymnastics for the youngest learners. Designed to build core confidence, coordination and movement capability through structured games.',
     days:'Tuesday & Thursday', time:'10:00 AM – 11:00 AM', coach:'Priya Sharma',
-    learn:['Basic balance & coordination','Fun tumbling and rolls','Listening and following coach guidance','Flexibility games','Building confidence through group play']
+    learn:['Basic balance & coordination','Fun tumbling and rolls','Listening and following coach guidance','Flexibility games','Building confidence through play']
   },
   'beginners': {
     num:'02', title:'Beginners Program', age:'Ages 6 – 9', img:'images.jpeg',
@@ -2655,18 +2798,6 @@ function closeLightbox() {
   document.body.style.overflow = '';
 }
 
-// Interactive Accordion (Step Inside Section)
-function toggleAccordion(index) {
-  var items = document.querySelectorAll('.academy-accordion .accordion-item');
-  items.forEach(function(item, idx) {
-    if (idx === index) {
-      item.classList.add('active');
-    } else {
-      item.classList.remove('active');
-    }
-  });
-}
-
 // Esc Key Listener
 document.addEventListener('keydown', function(e){
   if (e.key === 'Escape') {
@@ -2674,29 +2805,6 @@ document.addEventListener('keydown', function(e){
     closeDrawer();
   }
 });
-
-// Scroll Detection for Navigation pill morphing
-var navbar = document.getElementById('navbar');
-window.addEventListener('scroll', function(){
-  var activePage = 'home';
-  document.querySelectorAll('.page').forEach(function(p){
-    if (p.classList.contains('active')) {
-      activePage = p.id.replace('page-', '');
-    }
-  });
-  
-  if (window.scrollY > 80) {
-    navbar.classList.add('scrolled');
-    if (activePage === 'home') {
-      navbar.style.background = 'rgba(10, 13, 20, 0.85)';
-    }
-  } else {
-    navbar.classList.remove('scrolled');
-    if (activePage === 'home') {
-      navbar.style.background = 'transparent';
-    }
-  }
-}, {passive:true});
 
 // Intersection Observer for scroll entrance animations
 var observer = new IntersectionObserver(function(entries){
