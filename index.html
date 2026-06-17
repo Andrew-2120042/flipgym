@@ -1798,6 +1798,150 @@ footer {
   text-transform: uppercase;
 }
 
+/* BATCHES SECTION */
+.batches-section {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+.batches-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.batches-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1.1;
+}
+.batches-subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+.batches-list {
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.03);
+}
+.batch-row {
+  display: grid;
+  grid-template-columns: 80px 1fr auto auto 52px;
+  align-items: center;
+  gap: 28px;
+  padding: 28px 36px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.25s ease;
+  position: relative;
+}
+.batch-row:last-child { border-bottom: none; }
+.batch-row::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 0;
+  background: var(--primary);
+  border-radius: 0 2px 2px 0;
+  transition: width 0.28s cubic-bezier(0.16,1,0.3,1);
+}
+.batch-row:hover::before { width: 4px; }
+.batch-row:hover { background: rgba(255,122,69,0.025); }
+.batch-num {
+  font-family: 'Outfit', sans-serif;
+  font-size: 44px;
+  font-weight: 900;
+  color: rgba(0,0,0,0.07);
+  line-height: 1;
+  transition: color 0.3s, opacity 0.3s;
+  user-select: none;
+}
+.batch-row:hover .batch-num {
+  color: var(--primary);
+  opacity: 0.4;
+}
+.batch-info h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.batch-info p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  max-width: 400px;
+}
+.batch-age {
+  display: inline-flex;
+  align-items: center;
+  background: var(--primary-light);
+  border: 1px solid rgba(255,122,69,0.18);
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 7px 16px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+.batch-schedule { text-align: right; }
+.batch-schedule strong {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+.batch-schedule span {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.batch-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--light);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.28s cubic-bezier(0.16,1,0.3,1);
+}
+.batch-arrow svg {
+  width: 15px;
+  height: 15px;
+  stroke: var(--text-muted);
+  stroke-width: 2.5;
+  fill: none;
+  transition: transform 0.28s, stroke 0.28s;
+}
+.batch-row:hover .batch-arrow {
+  background: var(--primary);
+  border-color: var(--primary);
+  transform: scale(1.08);
+}
+.batch-row:hover .batch-arrow svg {
+  stroke: var(--white);
+  transform: translateX(2px);
+}
+
 /* ══════════════ RESPONSIVE ══════════════ */
 @media (max-width: 1024px) {
   .welcome-grid {
@@ -1905,6 +2049,16 @@ footer {
   .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
 
+/* Batches section */
+  .batch-row {
+    grid-template-columns: 56px 1fr 44px;
+    gap: 16px;
+    padding: 20px 24px;
+  }
+  .batch-age, .batch-schedule { display: none; }
+  .batch-num { font-size: 32px; }
+  .batch-info h3 { font-size: 15px; }
+
   /* Gallery */
   .gallery-full-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .gallery-page-header { padding: 100px 5% 32px; }
@@ -1940,6 +2094,16 @@ footer {
   /* Prices */
   .price-card { min-height: 360px; padding: 24px; }
   .price-card-title { font-size: 1.6rem; }
+
+/* Batches section */
+  .batch-row {
+    grid-template-columns: 56px 1fr 44px;
+    gap: 16px;
+    padding: 20px 24px;
+  }
+  .batch-age, .batch-schedule { display: none; }
+  .batch-num { font-size: 32px; }
+  .batch-info h3 { font-size: 15px; }
 
   /* Gallery */
   .gallery-full-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
@@ -2154,8 +2318,118 @@ footer {
     </div>
   </section>
 
+<!-- BATCHES SECTION -->
+  <section class="batches-section" id="classes">
+    <div class="section-inner">
+      <div class="batches-header fade-up">
+        <span class="badge">Our Programs</span>
+        <h2 class="batches-title">Find the right batch for you</h2>
+        <p class="batches-subtitle">Six structured programs designed for every age and skill level — from first-timers to competitive athletes. Click any batch to explore details.</p>
+      </div>
+      <div class="batches-list">
+
+        <div class="batch-row fade-up" onclick="openDrawer('tiny-tots')">
+          <div class="batch-num">01</div>
+          <div class="batch-info">
+            <h3>Tiny Tots</h3>
+            <p>Movement, balance and basic body coordination through fun gymnastics play.</p>
+          </div>
+          <div class="batch-age">Ages 3–5</div>
+          <div class="batch-schedule">
+            <strong>Tue / Thu</strong>
+            <span>10:00 – 11:00 AM</span>
+          </div>
+          <div class="batch-arrow">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <div class="batch-row fade-up" style="transition-delay:0.06s" onclick="openDrawer('beginners')">
+          <div class="batch-num">02</div>
+          <div class="batch-info">
+            <h3>Beginners</h3>
+            <p>Cartwheels, forward rolls, handstands and basic bar work. Safe and structured.</p>
+          </div>
+          <div class="batch-age">Ages 6–9</div>
+          <div class="batch-schedule">
+            <strong>Mon / Wed / Fri</strong>
+            <span>5:30 – 6:30 PM</span>
+          </div>
+          <div class="batch-arrow">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <div class="batch-row fade-up" style="transition-delay:0.12s" onclick="openDrawer('intermediate')">
+          <div class="batch-num">03</div>
+          <div class="batch-info">
+            <h3>Intermediate</h3>
+            <p>Back walkovers, round-offs, aerials and floor routines. Beam and bars included.</p>
+          </div>
+          <div class="batch-age">Ages 9–13</div>
+          <div class="batch-schedule">
+            <strong>Mon / Wed / Fri</strong>
+            <span>4:00 – 5:30 PM</span>
+          </div>
+          <div class="batch-arrow">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <div class="batch-row fade-up" style="transition-delay:0.18s" onclick="openDrawer('advanced')">
+          <div class="batch-num">04</div>
+          <div class="batch-info">
+            <h3>Advanced &amp; Competitive</h3>
+            <p>Competition-level training. Full routines, strength conditioning and competition prep.</p>
+          </div>
+          <div class="batch-age">Ages 12–17</div>
+          <div class="batch-schedule">
+            <strong>Mon – Fri</strong>
+            <span>6:30 – 8:00 AM</span>
+          </div>
+          <div class="batch-arrow">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <div class="batch-row fade-up" style="transition-delay:0.24s" onclick="openDrawer('artistic')">
+          <div class="batch-num">05</div>
+          <div class="batch-info">
+            <h3>Artistic Gymnastics</h3>
+            <p>Vault, bars, beam and floor events for students aiming at state and national competitions.</p>
+          </div>
+          <div class="batch-age">Ages 10–18</div>
+          <div class="batch-schedule">
+            <strong>Tue / Thu / Sat</strong>
+            <span>5:00 – 7:00 PM</span>
+          </div>
+          <div class="batch-arrow">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <div class="batch-row fade-up" style="transition-delay:0.30s" onclick="openDrawer('adult')">
+          <div class="batch-num">06</div>
+          <div class="batch-info">
+            <h3>Adult Fitness Gymnastics</h3>
+            <p>Flexibility, core strength and body awareness for adults. No prior experience needed.</p>
+          </div>
+          <div class="batch-age">Ages 18+</div>
+          <div class="batch-schedule">
+            <strong>Sat / Sun</strong>
+            <span>8:00 – 9:30 AM</span>
+          </div>
+          <div class="batch-arrow">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- SECTION 4: PRICES / PLANS (SCREENSHOT 4 CLONE) -->
-  <section class="prices-section" id="classes">
+  <section class="prices-section" id="pricing">
     <div class="section-inner">
       <div class="prices-header fade-up">
         <h2 class="prices-title">Find the Perfect Plan for Your Athletic <span class="emoji">🤸</span> Journey</h2>
@@ -2174,7 +2448,6 @@ footer {
           <div class="price-card-top">
             <div class="price-tags">
               <span class="price-tag-pill black">Best Seller</span>
-              <span class="price-tag-pill outline">1 Year Expiry</span>
             </div>
             <div class="price-recommend">
               <div class="price-recommend-avatars">
@@ -2208,7 +2481,6 @@ footer {
           <div class="price-card-top">
             <div class="price-tags">
               <span class="price-tag-pill outline">Best Seller</span>
-              <span class="price-tag-pill outline">1 Year Expiry</span>
             </div>
             <div class="price-recommend">
               <div class="price-recommend-avatars">
