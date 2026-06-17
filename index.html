@@ -1798,11 +1798,8 @@ footer {
   text-transform: uppercase;
 }
 
-/* RESPONSIVE LAYOUT OVERRIDES */
+/* ══════════════ RESPONSIVE ══════════════ */
 @media (max-width: 1024px) {
-  header {
-    top: 16px;
-  }
   .welcome-grid {
     grid-template-columns: 1fr;
     gap: 32px;
@@ -1817,70 +1814,152 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
   .trainer-card.height-tall, .trainer-card.height-short {
-    height: 320px;
+    height: 300px;
   }
   .prices-grid {
     grid-template-columns: 1fr;
     max-width: 560px;
+    margin: 0 auto;
   }
   .testi-grid-layout {
     grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .testi-left-photo, .testi-right-preview {
+    display: none;
+  }
+  .about-dark-inner {
+    grid-template-columns: 1fr !important;
+    gap: 48px !important;
+    padding: 120px 5% 60px !important;
+  }
+  .about-detail-grid {
+    grid-template-columns: 1fr !important;
     gap: 40px;
-  }
-  .testi-left-photo {
-    display: none;
-  }
-  .testi-right-preview {
-    display: none;
   }
 }
 
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
+  /* Nav */
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .nav-container { height: 70px; }
+
+  /* Sections */
+  section { padding: 64px 5%; }
+
+  /* Hero */
+  .hero {
+    margin: 0 6px;
+    border-radius: 0 0 28px 28px;
+    min-height: 580px;
+    padding: 90px 5% 60px;
   }
-  .nav-cta {
-    display: none;
-  }
-  .nav-container {
-    height: 70px;
-  }
-  .enroll-grid {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
-  .enroll-form-wrap {
-    padding: 32px 24px;
-  }
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-  .footer-top {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .footer-bottom {
-    flex-direction: column;
-    gap: 16px;
-    text-align: center;
-  }
-  .gallery-full-grid {
+
+  /* Welcome */
+  .welcome-left { gap: 20px; }
+  .welcome-title { font-size: 1.6rem; }
+
+  /* Trainers */
+  .trainers-masonry {
     grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
+  .trainer-card.height-tall, .trainer-card.height-short {
+    height: 260px;
+  }
+  .trainers-filter-bar {
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 16px;
+  }
+
+  /* Prices */
+  .price-card { min-height: 400px; padding: 28px; }
+  .prices-title { font-size: 1.8rem; }
+  .prices-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  /* Testimonials */
+  .testi-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .testi-quote-mark { font-size: 64px; }
+  .testi-text { font-size: 1.1rem; min-height: auto; }
+
+  /* Banner */
+  .banner-overlap-img { display: none; }
+  .banner-text { font-size: clamp(2rem, 10vw, 5rem); white-space: normal; }
+
+  /* Enroll / Contact */
+  .enroll-grid { grid-template-columns: 1fr; gap: 40px; }
+  .enroll-form-wrap { padding: 28px 20px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+
+  /* Footer */
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+
+  /* Gallery */
+  .gallery-full-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .gallery-page-header { padding: 100px 5% 32px; }
+
+  /* About */
+  .about-stats-panel { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .about-stat-num { font-size: 2rem !important; }
+  .about-features-list { grid-template-columns: 1fr !important; }
+  .about-page-body { padding: 60px 5% !important; }
+
+  /* Drawer */
+  .class-drawer { width: 100vw; }
+  .drawer-body { padding: 28px 20px; }
 }
 
 @media (max-width: 480px) {
-  .gallery-full-grid {
-    grid-template-columns: 1fr;
-  }
-  .wa-float {
-    bottom: 20px;
-    right: 20px;
-  }
-  .wa-tooltip {
-    display: none;
-  }
+  /* Nav */
+  .logo-text { font-size: 12px; letter-spacing: 0.02em; }
+
+  /* Hero */
+  .hero { margin: 0 4px; border-radius: 0 0 20px 20px; min-height: 520px; }
+  .hero-title { font-size: 1.75rem; }
+  .hero-subtitle { font-size: 13px; }
+
+  /* Welcome */
+  .welcome-title { font-size: 1.4rem; }
+
+  /* Trainers */
+  .trainers-masonry { grid-template-columns: 1fr; }
+  .trainer-card.height-tall, .trainer-card.height-short { height: 300px; }
+  .trainers-title { font-size: 1.8rem; }
+
+  /* Prices */
+  .price-card { min-height: 360px; padding: 24px; }
+  .price-card-title { font-size: 1.6rem; }
+
+  /* Gallery */
+  .gallery-full-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .g-item { border-radius: 12px; }
+
+  /* Footer */
+  .footer-top { grid-template-columns: 1fr; gap: 28px; }
+
+  /* About */
+  .about-stats-panel { grid-template-columns: 1fr; }
+
+  /* WhatsApp */
+  .wa-float { bottom: 20px; right: 16px; }
+  .wa-tooltip { display: none; }
+
+  /* Enroll */
+  .enroll-info-icon { width: 40px; height: 40px; }
+
+  /* Section padding */
+  section { padding: 48px 4%; }
 }
 </style>
 </head>
